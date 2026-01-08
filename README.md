@@ -6,6 +6,8 @@ A comprehensive operating system memory management simulator implementing dynami
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
+**Video Demonstration Link**: https://drive.google.com/file/d/10189erSHRDoI8F9XJCewkoZHlXz10vcR/view?usp=drive_link
+
 ## 📋 Table of Contents
 - [Features](#features)
 - [Architecture](#architecture)
@@ -16,7 +18,7 @@ A comprehensive operating system memory management simulator implementing dynami
 - [Project Structure](#project-structure)
 - [Key Feature Highlight](#key-features-highlight)
 - [Design Observations](#design-observations)
-- [Troubleshooting](#troubleshooting) 
+- [Troubleshooting](#troubleshooting)
 
 ## ✨ Features
 
