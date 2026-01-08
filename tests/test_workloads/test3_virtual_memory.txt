@@ -1,0 +1,109 @@
+# Test 3: Virtual Memory and Paging
+# Tests: Address translation, page faults, FIFO vs LRU replacement
+# Expected: Page hits/faults, proper replacement, policy differences
+
+# Initialize Virtual Memory with FIFO
+init memory 16384
+init vm 65536 256 fifo
+status
+
+# Basic Address Translation
+read 1000
+read 1050
+read 1100
+stats
+
+# Page Boundaries (different pages)
+read 256
+read 512
+read 768
+page_table
+
+# Fill all frames (16384 / 256 = 64 frames)
+read 0
+read 256
+read 512
+read 768
+read 1024
+read 1280
+read 1536
+read 1792
+read 2048
+read 2304
+read 2560
+read 2816
+read 3072
+read 3328
+read 3584
+read 3840
+read 4096
+read 4352
+read 4608
+read 4864
+read 5120
+read 5376
+read 5632
+read 5888
+read 6144
+read 6400
+read 6656
+read 6912
+read 7168
+read 7424
+read 7680
+read 7936
+read 8192
+read 8448
+read 8704
+read 8960
+read 9216
+read 9472
+read 9728
+read 9984
+read 10240
+read 10496
+read 10752
+read 11008
+read 11264
+read 11520
+read 11776
+read 12032
+read 12288
+read 12544
+read 12800
+read 13056
+read 13312
+read 13568
+read 13824
+read 14080
+read 14336
+read 14592
+read 14848
+read 15104
+read 15360
+read 15616
+read 15872
+read 16128
+
+# Cause page replacement
+read 20000
+stats
+page_table
+
+# Test LRU Policy
+clear
+init memory 16384
+init vm 65536 256 lru
+
+read 1000
+read 2000
+read 3000
+read 4000
+read 1000
+stats
+
+# Invalid address
+read 100000
+stats
+
+exit

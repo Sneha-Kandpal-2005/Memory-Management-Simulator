@@ -1,0 +1,3189 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: FIFO
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: CLASSIC ALLOCATOR
+    Size: 16384 bytes
+    Strategy: First/Best/Worst Fit (configurable)
+
+  Virtual Memory:
+    Status: ENABLED
+    Address Translation: Active
+
+  Cache Hierarchy:
+    Status: DISABLED
+    Direct memory access
+
+  Integration Flow:
+    Virtual Address -> Page Table -> Physical Address -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 [FAULT] → Physical 0xe8
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x41a (1050)
+Virtual 0x41a [FAULT] → Physical 0x11a
+  [OK] Translation successful
+  Output: Physical Address 0x11a (282)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x11a
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x41a (1050)
+  Physical Address:  0x11a (282)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x44c (1100)
+Virtual 0x44c → Physical 0x14c [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x14c (332)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x14c
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x44c (1100)
+  Physical Address:  0x14c (332)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: FIFO
+
+Memory Access Statistics:
+  Total accesses: 3
+  Page hits: 1
+  Page faults: 2
+  Hit rate: 33.33%
+  Fault rate: 66.67%
+
+Disk Operations (Simulated):
+  Disk reads: 2
+  Disk writes: 0
+  Total disk I/O: 2
+
+Frame Utilization:
+  Frames used: 2 / 64
+  Utilization: 3.12%
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x100 (256)
+Virtual 0x100 [FAULT] → Physical 0x200
+  [OK] Translation successful
+  Output: Physical Address 0x200 (512)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x100 (256)
+  Physical Address:  0x200 (512)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x200 (512)
+Virtual 0x200 [FAULT] → Physical 0x300
+  [OK] Translation successful
+  Output: Physical Address 0x300 (768)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x300
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x200 (512)
+  Physical Address:  0x300 (768)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x300 (768)
+Virtual 0x300 → Physical 0x0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x300 (768)
+  Physical Address:  0x0 (0)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
+=== PAGE TABLE ===
+Format: Page | Valid | Frame | Dirty | Load_Time | Last_Access | Accesses
+
+Page   0 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   1 |   YES  |   2   |  NO   |     4     |      4      |    1
+Page   2 |   YES  |   3   |  NO   |     5     |      5      |    1
+Page   3 |   YES  |   0   |  NO   |     1     |      6      |    2
+Page   4 |   YES  |   1   |  NO   |     2     |      3      |    2
+Page   5 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   6 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   7 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   8 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   9 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  10 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  11 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  12 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  13 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  14 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  15 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  16 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  17 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  18 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  19 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  20 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  21 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  22 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  23 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  24 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  25 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  26 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  27 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  28 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  29 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  30 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  31 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  32 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  33 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  34 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  35 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  36 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  37 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  38 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  39 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  40 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  41 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  42 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  43 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  44 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  45 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  46 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  47 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  48 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  49 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  50 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  51 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  52 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  53 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  54 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  55 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  56 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  57 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  58 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  59 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  60 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  61 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  62 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  63 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  64 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  65 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  66 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  67 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  68 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  69 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  70 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  71 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  72 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  73 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  74 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  75 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  76 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  77 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  78 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  79 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  80 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  81 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  82 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  83 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  84 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  85 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  86 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  87 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  88 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  89 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  90 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  91 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  92 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  93 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  94 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  95 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  96 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  97 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  98 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  99 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 100 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 101 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 102 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 103 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 104 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 105 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 106 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 107 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 108 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 109 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 110 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 111 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 112 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 113 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 114 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 115 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 116 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 117 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 118 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 119 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 120 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 121 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 122 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 123 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 124 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 125 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 126 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 127 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 128 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 129 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 130 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 131 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 132 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 133 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 134 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 135 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 136 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 137 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 138 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 139 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 140 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 141 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 142 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 143 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 144 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 145 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 146 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 147 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 148 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 149 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 150 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 151 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 152 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 153 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 154 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 155 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 156 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 157 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 158 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 159 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 160 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 161 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 162 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 163 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 164 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 165 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 166 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 167 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 168 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 169 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 170 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 171 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 172 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 173 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 174 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 175 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 176 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 177 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 178 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 179 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 180 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 181 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 182 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 183 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 184 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 185 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 186 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 187 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 188 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 189 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 190 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 191 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 192 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 193 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 194 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 195 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 196 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 197 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 198 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 199 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 200 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 201 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 202 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 203 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 204 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 205 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 206 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 207 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 208 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 209 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 210 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 211 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 212 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 213 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 214 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 215 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 216 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 217 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 218 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 219 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 220 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 221 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 222 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 223 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 224 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 225 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 226 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 227 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 228 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 229 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 230 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 231 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 232 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 233 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 234 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 235 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 236 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 237 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 238 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 239 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 240 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 241 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 242 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 243 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 244 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 245 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 246 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 247 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 248 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 249 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 250 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 251 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 252 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 253 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 254 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 255 |   NO   |   -   |   -   |     -     |      -      |    -    
+
+Pages in memory: 1, 2, 3, 4 (4/64 frames used)
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x0 (0)
+Virtual 0x0 [FAULT] → Physical 0x400
+  [OK] Translation successful
+  Output: Physical Address 0x400 (1024)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x400
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x0 (0)
+  Physical Address:  0x400 (1024)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x100 (256)
+Virtual 0x100 → Physical 0x200 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x200 (512)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x100 (256)
+  Physical Address:  0x200 (512)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x200 (512)
+Virtual 0x200 → Physical 0x300 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x300 (768)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x300
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x200 (512)
+  Physical Address:  0x300 (768)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x300 (768)
+Virtual 0x300 → Physical 0x0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x300 (768)
+  Physical Address:  0x0 (0)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x400 (1024)
+Virtual 0x400 → Physical 0x100 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x100 (256)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x400 (1024)
+  Physical Address:  0x100 (256)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x500 (1280)
+Virtual 0x500 [FAULT] → Physical 0x500
+  [OK] Translation successful
+  Output: Physical Address 0x500 (1280)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x500
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x500 (1280)
+  Physical Address:  0x500 (1280)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x600 (1536)
+Virtual 0x600 [FAULT] → Physical 0x600
+  [OK] Translation successful
+  Output: Physical Address 0x600 (1536)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x600
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x600 (1536)
+  Physical Address:  0x600 (1536)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x700 (1792)
+Virtual 0x700 [FAULT] → Physical 0x700
+  [OK] Translation successful
+  Output: Physical Address 0x700 (1792)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x700
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x700 (1792)
+  Physical Address:  0x700 (1792)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x800 (2048)
+Virtual 0x800 [FAULT] → Physical 0x800
+  [OK] Translation successful
+  Output: Physical Address 0x800 (2048)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x800
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x800 (2048)
+  Physical Address:  0x800 (2048)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x900 (2304)
+Virtual 0x900 [FAULT] → Physical 0x900
+  [OK] Translation successful
+  Output: Physical Address 0x900 (2304)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x900
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x900 (2304)
+  Physical Address:  0x900 (2304)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xa00 (2560)
+Virtual 0xa00 [FAULT] → Physical 0xa00
+  [OK] Translation successful
+  Output: Physical Address 0xa00 (2560)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xa00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xa00 (2560)
+  Physical Address:  0xa00 (2560)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xb00 (2816)
+Virtual 0xb00 [FAULT] → Physical 0xb00
+  [OK] Translation successful
+  Output: Physical Address 0xb00 (2816)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xb00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xb00 (2816)
+  Physical Address:  0xb00 (2816)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xc00 (3072)
+Virtual 0xc00 [FAULT] → Physical 0xc00
+  [OK] Translation successful
+  Output: Physical Address 0xc00 (3072)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xc00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xc00 (3072)
+  Physical Address:  0xc00 (3072)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xd00 (3328)
+Virtual 0xd00 [FAULT] → Physical 0xd00
+  [OK] Translation successful
+  Output: Physical Address 0xd00 (3328)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xd00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xd00 (3328)
+  Physical Address:  0xd00 (3328)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xe00 (3584)
+Virtual 0xe00 [FAULT] → Physical 0xe00
+  [OK] Translation successful
+  Output: Physical Address 0xe00 (3584)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xe00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xe00 (3584)
+  Physical Address:  0xe00 (3584)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xf00 (3840)
+Virtual 0xf00 [FAULT] → Physical 0xf00
+  [OK] Translation successful
+  Output: Physical Address 0xf00 (3840)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xf00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xf00 (3840)
+  Physical Address:  0xf00 (3840)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1000 (4096)
+Virtual 0x1000 [FAULT] → Physical 0x1000
+  [OK] Translation successful
+  Output: Physical Address 0x1000 (4096)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1000
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1000 (4096)
+  Physical Address:  0x1000 (4096)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1100 (4352)
+Virtual 0x1100 [FAULT] → Physical 0x1100
+  [OK] Translation successful
+  Output: Physical Address 0x1100 (4352)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1100 (4352)
+  Physical Address:  0x1100 (4352)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1200 (4608)
+Virtual 0x1200 [FAULT] → Physical 0x1200
+  [OK] Translation successful
+  Output: Physical Address 0x1200 (4608)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1200 (4608)
+  Physical Address:  0x1200 (4608)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1300 (4864)
+Virtual 0x1300 [FAULT] → Physical 0x1300
+  [OK] Translation successful
+  Output: Physical Address 0x1300 (4864)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1300
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1300 (4864)
+  Physical Address:  0x1300 (4864)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1400 (5120)
+Virtual 0x1400 [FAULT] → Physical 0x1400
+  [OK] Translation successful
+  Output: Physical Address 0x1400 (5120)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1400
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1400 (5120)
+  Physical Address:  0x1400 (5120)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1500 (5376)
+Virtual 0x1500 [FAULT] → Physical 0x1500
+  [OK] Translation successful
+  Output: Physical Address 0x1500 (5376)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1500
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1500 (5376)
+  Physical Address:  0x1500 (5376)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1600 (5632)
+Virtual 0x1600 [FAULT] → Physical 0x1600
+  [OK] Translation successful
+  Output: Physical Address 0x1600 (5632)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1600
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1600 (5632)
+  Physical Address:  0x1600 (5632)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1700 (5888)
+Virtual 0x1700 [FAULT] → Physical 0x1700
+  [OK] Translation successful
+  Output: Physical Address 0x1700 (5888)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1700
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1700 (5888)
+  Physical Address:  0x1700 (5888)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1800 (6144)
+Virtual 0x1800 [FAULT] → Physical 0x1800
+  [OK] Translation successful
+  Output: Physical Address 0x1800 (6144)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1800
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1800 (6144)
+  Physical Address:  0x1800 (6144)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1900 (6400)
+Virtual 0x1900 [FAULT] → Physical 0x1900
+  [OK] Translation successful
+  Output: Physical Address 0x1900 (6400)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1900
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1900 (6400)
+  Physical Address:  0x1900 (6400)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1a00 (6656)
+Virtual 0x1a00 [FAULT] → Physical 0x1a00
+  [OK] Translation successful
+  Output: Physical Address 0x1a00 (6656)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1a00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1a00 (6656)
+  Physical Address:  0x1a00 (6656)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1b00 (6912)
+Virtual 0x1b00 [FAULT] → Physical 0x1b00
+  [OK] Translation successful
+  Output: Physical Address 0x1b00 (6912)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1b00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1b00 (6912)
+  Physical Address:  0x1b00 (6912)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1c00 (7168)
+Virtual 0x1c00 [FAULT] → Physical 0x1c00
+  [OK] Translation successful
+  Output: Physical Address 0x1c00 (7168)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1c00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1c00 (7168)
+  Physical Address:  0x1c00 (7168)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1d00 (7424)
+Virtual 0x1d00 [FAULT] → Physical 0x1d00
+  [OK] Translation successful
+  Output: Physical Address 0x1d00 (7424)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1d00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1d00 (7424)
+  Physical Address:  0x1d00 (7424)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1e00 (7680)
+Virtual 0x1e00 [FAULT] → Physical 0x1e00
+  [OK] Translation successful
+  Output: Physical Address 0x1e00 (7680)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1e00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1e00 (7680)
+  Physical Address:  0x1e00 (7680)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1f00 (7936)
+Virtual 0x1f00 [FAULT] → Physical 0x1f00
+  [OK] Translation successful
+  Output: Physical Address 0x1f00 (7936)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1f00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1f00 (7936)
+  Physical Address:  0x1f00 (7936)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2000 (8192)
+Virtual 0x2000 [FAULT] → Physical 0x2000
+  [OK] Translation successful
+  Output: Physical Address 0x2000 (8192)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2000
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2000 (8192)
+  Physical Address:  0x2000 (8192)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2100 (8448)
+Virtual 0x2100 [FAULT] → Physical 0x2100
+  [OK] Translation successful
+  Output: Physical Address 0x2100 (8448)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2100 (8448)
+  Physical Address:  0x2100 (8448)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2200 (8704)
+Virtual 0x2200 [FAULT] → Physical 0x2200
+  [OK] Translation successful
+  Output: Physical Address 0x2200 (8704)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2200 (8704)
+  Physical Address:  0x2200 (8704)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2300 (8960)
+Virtual 0x2300 [FAULT] → Physical 0x2300
+  [OK] Translation successful
+  Output: Physical Address 0x2300 (8960)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2300
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2300 (8960)
+  Physical Address:  0x2300 (8960)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2400 (9216)
+Virtual 0x2400 [FAULT] → Physical 0x2400
+  [OK] Translation successful
+  Output: Physical Address 0x2400 (9216)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2400
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2400 (9216)
+  Physical Address:  0x2400 (9216)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2500 (9472)
+Virtual 0x2500 [FAULT] → Physical 0x2500
+  [OK] Translation successful
+  Output: Physical Address 0x2500 (9472)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2500
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2500 (9472)
+  Physical Address:  0x2500 (9472)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2600 (9728)
+Virtual 0x2600 [FAULT] → Physical 0x2600
+  [OK] Translation successful
+  Output: Physical Address 0x2600 (9728)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2600
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2600 (9728)
+  Physical Address:  0x2600 (9728)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2700 (9984)
+Virtual 0x2700 [FAULT] → Physical 0x2700
+  [OK] Translation successful
+  Output: Physical Address 0x2700 (9984)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2700
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2700 (9984)
+  Physical Address:  0x2700 (9984)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2800 (10240)
+Virtual 0x2800 [FAULT] → Physical 0x2800
+  [OK] Translation successful
+  Output: Physical Address 0x2800 (10240)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2800
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2800 (10240)
+  Physical Address:  0x2800 (10240)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2900 (10496)
+Virtual 0x2900 [FAULT] → Physical 0x2900
+  [OK] Translation successful
+  Output: Physical Address 0x2900 (10496)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2900
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2900 (10496)
+  Physical Address:  0x2900 (10496)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2a00 (10752)
+Virtual 0x2a00 [FAULT] → Physical 0x2a00
+  [OK] Translation successful
+  Output: Physical Address 0x2a00 (10752)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2a00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2a00 (10752)
+  Physical Address:  0x2a00 (10752)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2b00 (11008)
+Virtual 0x2b00 [FAULT] → Physical 0x2b00
+  [OK] Translation successful
+  Output: Physical Address 0x2b00 (11008)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2b00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2b00 (11008)
+  Physical Address:  0x2b00 (11008)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2c00 (11264)
+Virtual 0x2c00 [FAULT] → Physical 0x2c00
+  [OK] Translation successful
+  Output: Physical Address 0x2c00 (11264)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2c00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2c00 (11264)
+  Physical Address:  0x2c00 (11264)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2d00 (11520)
+Virtual 0x2d00 [FAULT] → Physical 0x2d00
+  [OK] Translation successful
+  Output: Physical Address 0x2d00 (11520)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2d00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2d00 (11520)
+  Physical Address:  0x2d00 (11520)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2e00 (11776)
+Virtual 0x2e00 [FAULT] → Physical 0x2e00
+  [OK] Translation successful
+  Output: Physical Address 0x2e00 (11776)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2e00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2e00 (11776)
+  Physical Address:  0x2e00 (11776)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2f00 (12032)
+Virtual 0x2f00 [FAULT] → Physical 0x2f00
+  [OK] Translation successful
+  Output: Physical Address 0x2f00 (12032)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2f00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2f00 (12032)
+  Physical Address:  0x2f00 (12032)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3000 (12288)
+Virtual 0x3000 [FAULT] → Physical 0x3000
+  [OK] Translation successful
+  Output: Physical Address 0x3000 (12288)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3000
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3000 (12288)
+  Physical Address:  0x3000 (12288)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3100 (12544)
+Virtual 0x3100 [FAULT] → Physical 0x3100
+  [OK] Translation successful
+  Output: Physical Address 0x3100 (12544)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3100 (12544)
+  Physical Address:  0x3100 (12544)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3200 (12800)
+Virtual 0x3200 [FAULT] → Physical 0x3200
+  [OK] Translation successful
+  Output: Physical Address 0x3200 (12800)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3200 (12800)
+  Physical Address:  0x3200 (12800)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3300 (13056)
+Virtual 0x3300 [FAULT] → Physical 0x3300
+  [OK] Translation successful
+  Output: Physical Address 0x3300 (13056)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3300
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3300 (13056)
+  Physical Address:  0x3300 (13056)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3400 (13312)
+Virtual 0x3400 [FAULT] → Physical 0x3400
+  [OK] Translation successful
+  Output: Physical Address 0x3400 (13312)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3400
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3400 (13312)
+  Physical Address:  0x3400 (13312)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3500 (13568)
+Virtual 0x3500 [FAULT] → Physical 0x3500
+  [OK] Translation successful
+  Output: Physical Address 0x3500 (13568)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3500
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3500 (13568)
+  Physical Address:  0x3500 (13568)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3600 (13824)
+Virtual 0x3600 [FAULT] → Physical 0x3600
+  [OK] Translation successful
+  Output: Physical Address 0x3600 (13824)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3600
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3600 (13824)
+  Physical Address:  0x3600 (13824)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3700 (14080)
+Virtual 0x3700 [FAULT] → Physical 0x3700
+  [OK] Translation successful
+  Output: Physical Address 0x3700 (14080)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3700
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3700 (14080)
+  Physical Address:  0x3700 (14080)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3800 (14336)
+Virtual 0x3800 [FAULT] → Physical 0x3800
+  [OK] Translation successful
+  Output: Physical Address 0x3800 (14336)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3800
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3800 (14336)
+  Physical Address:  0x3800 (14336)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3900 (14592)
+Virtual 0x3900 [FAULT] → Physical 0x3900
+  [OK] Translation successful
+  Output: Physical Address 0x3900 (14592)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3900
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3900 (14592)
+  Physical Address:  0x3900 (14592)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3a00 (14848)
+Virtual 0x3a00 [FAULT] → Physical 0x3a00
+  [OK] Translation successful
+  Output: Physical Address 0x3a00 (14848)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3a00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3a00 (14848)
+  Physical Address:  0x3a00 (14848)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3b00 (15104)
+Virtual 0x3b00 [FAULT] → Physical 0x3b00
+  [OK] Translation successful
+  Output: Physical Address 0x3b00 (15104)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3b00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3b00 (15104)
+  Physical Address:  0x3b00 (15104)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3c00 (15360)
+Virtual 0x3c00 [FAULT] → Physical 0x3c00
+  [OK] Translation successful
+  Output: Physical Address 0x3c00 (15360)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3c00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3c00 (15360)
+  Physical Address:  0x3c00 (15360)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3d00 (15616)
+Virtual 0x3d00 [FAULT] → Physical 0x3d00
+  [OK] Translation successful
+  Output: Physical Address 0x3d00 (15616)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3d00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3d00 (15616)
+  Physical Address:  0x3d00 (15616)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e00 (15872)
+Virtual 0x3e00 [FAULT] → Physical 0x3e00
+  [OK] Translation successful
+  Output: Physical Address 0x3e00 (15872)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3e00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e00 (15872)
+  Physical Address:  0x3e00 (15872)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3f00 (16128)
+Virtual 0x3f00 [FAULT] → Physical 0x3f00
+  [OK] Translation successful
+  Output: Physical Address 0x3f00 (16128)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3f00
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3f00 (16128)
+  Physical Address:  0x3f00 (16128)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x4e20 (20000)
+Virtual 0x4e20 [FAULT] → Physical 0x20
+  [OK] Translation successful
+  Output: Physical Address 0x20 (32)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x20
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x4e20 (20000)
+  Physical Address:  0x20 (32)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: FIFO
+
+Memory Access Statistics:
+  Total accesses: 71
+  Page hits: 6
+  Page faults: 65
+  Hit rate: 8.45%
+  Fault rate: 91.55%
+
+Disk Operations (Simulated):
+  Disk reads: 65
+  Disk writes: 0
+  Total disk I/O: 65
+
+Frame Utilization:
+  Frames used: 64 / 64
+  Utilization: 100.00%
+> 
+=== PAGE TABLE ===
+Format: Page | Valid | Frame | Dirty | Load_Time | Last_Access | Accesses
+
+Page   0 |   YES  |   4   |  NO   |     7     |      7      |    1
+Page   1 |   YES  |   2   |  NO   |     4     |      8      |    2
+Page   2 |   YES  |   3   |  NO   |     5     |      9      |    2
+Page   3 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   4 |   YES  |   1   |  NO   |     2     |     11      |    3
+Page   5 |   YES  |   5   |  NO   |    12     |     12      |    1
+Page   6 |   YES  |   6   |  NO   |    13     |     13      |    1
+Page   7 |   YES  |   7   |  NO   |    14     |     14      |    1
+Page   8 |   YES  |   8   |  NO   |    15     |     15      |    1
+Page   9 |   YES  |   9   |  NO   |    16     |     16      |    1
+Page  10 |   YES  |  10   |  NO   |    17     |     17      |    1
+Page  11 |   YES  |  11   |  NO   |    18     |     18      |    1
+Page  12 |   YES  |  12   |  NO   |    19     |     19      |    1
+Page  13 |   YES  |  13   |  NO   |    20     |     20      |    1
+Page  14 |   YES  |  14   |  NO   |    21     |     21      |    1
+Page  15 |   YES  |  15   |  NO   |    22     |     22      |    1
+Page  16 |   YES  |  16   |  NO   |    23     |     23      |    1
+Page  17 |   YES  |  17   |  NO   |    24     |     24      |    1
+Page  18 |   YES  |  18   |  NO   |    25     |     25      |    1
+Page  19 |   YES  |  19   |  NO   |    26     |     26      |    1
+Page  20 |   YES  |  20   |  NO   |    27     |     27      |    1
+Page  21 |   YES  |  21   |  NO   |    28     |     28      |    1
+Page  22 |   YES  |  22   |  NO   |    29     |     29      |    1
+Page  23 |   YES  |  23   |  NO   |    30     |     30      |    1
+Page  24 |   YES  |  24   |  NO   |    31     |     31      |    1
+Page  25 |   YES  |  25   |  NO   |    32     |     32      |    1
+Page  26 |   YES  |  26   |  NO   |    33     |     33      |    1
+Page  27 |   YES  |  27   |  NO   |    34     |     34      |    1
+Page  28 |   YES  |  28   |  NO   |    35     |     35      |    1
+Page  29 |   YES  |  29   |  NO   |    36     |     36      |    1
+Page  30 |   YES  |  30   |  NO   |    37     |     37      |    1
+Page  31 |   YES  |  31   |  NO   |    38     |     38      |    1
+Page  32 |   YES  |  32   |  NO   |    39     |     39      |    1
+Page  33 |   YES  |  33   |  NO   |    40     |     40      |    1
+Page  34 |   YES  |  34   |  NO   |    41     |     41      |    1
+Page  35 |   YES  |  35   |  NO   |    42     |     42      |    1
+Page  36 |   YES  |  36   |  NO   |    43     |     43      |    1
+Page  37 |   YES  |  37   |  NO   |    44     |     44      |    1
+Page  38 |   YES  |  38   |  NO   |    45     |     45      |    1
+Page  39 |   YES  |  39   |  NO   |    46     |     46      |    1
+Page  40 |   YES  |  40   |  NO   |    47     |     47      |    1
+Page  41 |   YES  |  41   |  NO   |    48     |     48      |    1
+Page  42 |   YES  |  42   |  NO   |    49     |     49      |    1
+Page  43 |   YES  |  43   |  NO   |    50     |     50      |    1
+Page  44 |   YES  |  44   |  NO   |    51     |     51      |    1
+Page  45 |   YES  |  45   |  NO   |    52     |     52      |    1
+Page  46 |   YES  |  46   |  NO   |    53     |     53      |    1
+Page  47 |   YES  |  47   |  NO   |    54     |     54      |    1
+Page  48 |   YES  |  48   |  NO   |    55     |     55      |    1
+Page  49 |   YES  |  49   |  NO   |    56     |     56      |    1
+Page  50 |   YES  |  50   |  NO   |    57     |     57      |    1
+Page  51 |   YES  |  51   |  NO   |    58     |     58      |    1
+Page  52 |   YES  |  52   |  NO   |    59     |     59      |    1
+Page  53 |   YES  |  53   |  NO   |    60     |     60      |    1
+Page  54 |   YES  |  54   |  NO   |    61     |     61      |    1
+Page  55 |   YES  |  55   |  NO   |    62     |     62      |    1
+Page  56 |   YES  |  56   |  NO   |    63     |     63      |    1
+Page  57 |   YES  |  57   |  NO   |    64     |     64      |    1
+Page  58 |   YES  |  58   |  NO   |    65     |     65      |    1
+Page  59 |   YES  |  59   |  NO   |    66     |     66      |    1
+Page  60 |   YES  |  60   |  NO   |    67     |     67      |    1
+Page  61 |   YES  |  61   |  NO   |    68     |     68      |    1
+Page  62 |   YES  |  62   |  NO   |    69     |     69      |    1
+Page  63 |   YES  |  63   |  NO   |    70     |     70      |    1
+Page  64 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  65 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  66 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  67 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  68 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  69 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  70 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  71 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  72 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  73 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  74 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  75 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  76 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  77 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  78 |   YES  |   0   |  NO   |    71     |     71      |    1
+Page  79 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  80 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  81 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  82 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  83 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  84 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  85 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  86 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  87 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  88 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  89 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  90 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  91 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  92 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  93 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  94 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  95 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  96 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  97 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  98 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  99 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 100 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 101 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 102 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 103 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 104 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 105 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 106 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 107 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 108 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 109 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 110 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 111 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 112 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 113 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 114 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 115 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 116 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 117 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 118 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 119 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 120 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 121 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 122 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 123 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 124 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 125 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 126 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 127 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 128 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 129 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 130 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 131 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 132 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 133 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 134 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 135 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 136 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 137 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 138 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 139 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 140 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 141 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 142 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 143 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 144 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 145 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 146 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 147 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 148 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 149 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 150 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 151 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 152 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 153 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 154 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 155 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 156 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 157 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 158 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 159 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 160 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 161 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 162 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 163 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 164 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 165 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 166 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 167 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 168 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 169 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 170 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 171 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 172 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 173 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 174 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 175 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 176 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 177 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 178 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 179 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 180 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 181 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 182 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 183 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 184 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 185 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 186 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 187 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 188 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 189 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 190 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 191 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 192 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 193 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 194 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 195 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 196 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 197 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 198 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 199 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 200 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 201 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 202 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 203 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 204 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 205 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 206 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 207 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 208 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 209 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 210 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 211 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 212 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 213 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 214 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 215 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 216 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 217 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 218 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 219 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 220 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 221 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 222 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 223 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 224 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 225 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 226 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 227 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 228 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 229 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 230 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 231 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 232 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 233 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 234 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 235 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 236 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 237 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 238 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 239 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 240 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 241 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 242 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 243 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 244 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 245 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 246 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 247 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 248 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 249 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 250 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 251 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 252 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 253 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 254 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 255 |   NO   |   -   |   -   |     -     |      -      |    -    
+
+Pages in memory: 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 78 (64/64 frames used)
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 [FAULT] → Physical 0xe8
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x7d0 (2000)
+Virtual 0x7d0 [FAULT] → Physical 0x1d0
+  [OK] Translation successful
+  Output: Physical Address 0x1d0 (464)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1d0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x7d0 (2000)
+  Physical Address:  0x1d0 (464)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbb8 (3000)
+Virtual 0xbb8 [FAULT] → Physical 0x2b8
+  [OK] Translation successful
+  Output: Physical Address 0x2b8 (696)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2b8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbb8 (3000)
+  Physical Address:  0x2b8 (696)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xfa0 (4000)
+Virtual 0xfa0 [FAULT] → Physical 0x3a0
+  [OK] Translation successful
+  Output: Physical Address 0x3a0 (928)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3a0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xfa0 (4000)
+  Physical Address:  0x3a0 (928)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 → Physical 0xe8 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: READ
+  Flow: VM Translation -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 5
+  Page hits: 1
+  Page faults: 4
+  Hit rate: 20.00%
+  Fault rate: 80.00%
+
+Disk Operations (Simulated):
+  Disk reads: 4
+  Disk writes: 0
+  Total disk I/O: 4
+
+Frame Utilization:
+  Frames used: 4 / 64
+  Utilization: 6.25%
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x186a0 (100000)
+ERROR: Virtual address 0x186a0 exceeds virtual memory size!
+
+  [X] Address translation FAILED
+  Access terminated.
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 6
+  Page hits: 1
+  Page faults: 4
+  Hit rate: 16.67%
+  Fault rate: 66.67%
+
+Disk Operations (Simulated):
+  Disk reads: 4
+  Disk writes: 0
+  Total disk I/O: 4
+
+Frame Utilization:
+  Frames used: 4 / 64
+  Utilization: 6.25%
+> > 
+========================================
+Exiting Memory Management Simulator
+Thank you for using the simulator!
+========================================

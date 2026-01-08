@@ -1,0 +1,1425 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 1000 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 1000 bytes
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+Error: Cannot allocate 0 bytes
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+Error: Not enough memory to allocate 5000 bytes
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Deallocation Request
+========================================
+Error: Block 9999 not found
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=1 at address=0x0000 (100 bytes)
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 1 freed and merged
+> 
+========================================
+Memory Deallocation Request
+========================================
+Error: Block 1 not found
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 1000 bytes
+Used memory: 0 bytes
+Free memory: 1000 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 3
+Successful: 1
+Failed: 2
+Success rate: 33.33%
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 8192 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 8192 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 32768 bytes
+Physical memory size: 8192 bytes
+Page size: 256 bytes
+Virtual pages: 128
+Physical frames: 32
+Replacement policy: FIFO
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xc350 (50000)
+ERROR: Virtual address 0xc350 exceeds virtual memory size!
+
+  [X] Address translation FAILED
+  Access terminated.
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 32768 bytes (128 pages)
+  Physical memory: 8192 bytes (32 frames)
+  Page size: 256 bytes
+  Replacement policy: FIFO
+
+Memory Access Statistics:
+  Total accesses: 1
+  Page hits: 0
+  Page faults: 0
+  Hit rate: 0.00%
+  Fault rate: 0.00%
+
+Disk Operations (Simulated):
+  Disk reads: 0
+  Disk writes: 0
+  Total disk I/O: 0
+
+Frame Utilization:
+  Frames used: 0 / 32
+  Utilization: 0.00%
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 8192 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 8192 bytes
+========================================
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x3e8 (1000)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3e8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x3e8 (1000)
+  Operation: READ
+  Flow: Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x7d0 (2000)
+
+  [STEP 2] CACHE HIERARCHY: Disabled
+  Direct memory access
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x7d0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x7d0 (2000)
+  Operation: WRITE
+  Flow: Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Warning: Buddy allocator requires power-of-2 size.
+Adjusting to: 2048 bytes
+Buddy Allocator initialized:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+  Orders: 0 (16 bytes) to 7 (2048 bytes)
+Memory Allocator: BUDDY SYSTEM
+Physical Memory: 2048 bytes
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: BUDDY SYSTEM
+    Size: 2048 bytes (power-of-2)
+    Min Block: 16 bytes
+
+  Virtual Memory:
+    Status: DISABLED
+    Using direct physical addressing
+
+  Cache Hierarchy:
+    Status: DISABLED
+    Direct memory access
+
+  Integration Flow:
+    Physical Address -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 8192 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 8192 bytes
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x3e8 (1000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3e8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x3e8 (1000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x7d0 (2000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x7d0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x7d0 (2000)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 2
+  Total reads: 1
+  Total writes: 1
+  L1 hits: 0
+  L2 hits: 0
+  Memory accesses: 2
+  Memory writes: 1
+  Overall hit ratio: 0.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 222
+  Average cycles per access: 111.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 10000 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 10000 bytes
+========================================
+> Allocation strategy set to: Best Fit
+> > 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=1 at address=0x0000 (100 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=2 at address=0x0064 (200 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=3 at address=0x012c (150 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=4 at address=0x01c2 (300 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=5 at address=0x02ee (250 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=6 at address=0x03e8 (400 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=7 at address=0x0578 (175 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=8 at address=0x0627 (225 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=9 at address=0x0708 (180 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=10 at address=0x07bc (280 bytes)
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] USED (id=1)
+[0x0064 - 0x012b] USED (id=2)
+[0x012c - 0x01c1] USED (id=3)
+[0x01c2 - 0x02ed] USED (id=4)
+[0x02ee - 0x03e7] USED (id=5)
+[0x03e8 - 0x0577] USED (id=6)
+[0x0578 - 0x0626] USED (id=7)
+[0x0627 - 0x0707] USED (id=8)
+[0x0708 - 0x07bb] USED (id=9)
+[0x07bc - 0x08d3] USED (id=10)
+[0x08d4 - 0x270f] FREE
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 10000 bytes
+Used memory: 2260 bytes
+Free memory: 7740 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 10
+Successful: 10
+Failed: 0
+Success rate: 100.00%
+
+> > 
+========================================
+Memory Deallocation Request
+========================================
+Block 2 freed and merged
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 4 freed and merged
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 6 freed and merged
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 8 freed and merged
+> > 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=11 at address=0x0064 (190 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=12 at address=0x01c2 (290 bytes)
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] USED (id=1)
+[0x0064 - 0x0121] USED (id=11)
+[0x0122 - 0x012b] FREE
+[0x012c - 0x01c1] USED (id=3)
+[0x01c2 - 0x02e3] USED (id=12)
+[0x02e4 - 0x02ed] FREE
+[0x02ee - 0x03e7] USED (id=5)
+[0x03e8 - 0x0577] FREE
+[0x0578 - 0x0626] USED (id=7)
+[0x0627 - 0x0707] FREE
+[0x0708 - 0x07bb] USED (id=9)
+[0x07bc - 0x08d3] USED (id=10)
+[0x08d4 - 0x270f] FREE
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 10000 bytes
+Used memory: 1615 bytes
+Free memory: 8385 bytes
+Free blocks: 5
+External fragmentation: 7.69%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 12
+Successful: 12
+Failed: 0
+Success rate: 100.00%
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Buddy Allocator initialized:
+  Total memory: 4096 bytes
+  Min block size: 16 bytes
+  Max order: 8
+  Orders: 0 (16 bytes) to 8 (4096 bytes)
+Memory Allocator: BUDDY SYSTEM
+Physical Memory: 4096 bytes
+========================================
+> > 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #1:
+  Requested: 50 bytes
+  Rounded to: 64 bytes (order 2)
+  No free block at order 2, splitting larger blocks...
+  SUCCESS: Allocated block_id=1 at address 0xfc0 (size=64 bytes)
+  Internal fragmentation: 14 bytes (21.88%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #2:
+  Requested: 100 bytes
+  Rounded to: 128 bytes (order 3)
+  SUCCESS: Allocated block_id=2 at address 0xf00 (size=128 bytes)
+  Internal fragmentation: 28 bytes (21.88%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #3:
+  Requested: 150 bytes
+  Rounded to: 256 bytes (order 4)
+  SUCCESS: Allocated block_id=3 at address 0xe00 (size=256 bytes)
+  Internal fragmentation: 106 bytes (41.41%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #4:
+  Requested: 200 bytes
+  Rounded to: 256 bytes (order 4)
+  No free block at order 4, splitting larger blocks...
+  SUCCESS: Allocated block_id=4 at address 0xd00 (size=256 bytes)
+  Internal fragmentation: 56 bytes (21.88%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #5:
+  Requested: 250 bytes
+  Rounded to: 256 bytes (order 4)
+  SUCCESS: Allocated block_id=5 at address 0xc00 (size=256 bytes)
+  Internal fragmentation: 6 bytes (2.34%)
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 001 | 0x0fc0 | 00050 -> 00064 | 0014 bytes (21.9%)
+Block 002 | 0x0f00 | 00100 -> 00128 | 0028 bytes (21.9%)
+Block 003 | 0x0e00 | 00150 -> 00256 | 0106 bytes (41.4%)
+Block 004 | 0x0d00 | 00200 -> 00256 | 0056 bytes (21.9%)
+Block 005 | 0x0c00 | 00250 -> 00256 | 0006 bytes (2.3%)
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): empty
+Order 02 (000064 bytes): [0x0f80] (1 block)
+Order 03 (000128 bytes): empty
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): empty
+Order 06 (001024 bytes): [0x0800] (1 block)
+Order 07 (002048 bytes): [0x0000] (1 block)
+Order 08 (004096 bytes): empty
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 4096 bytes
+  Min block size: 16 bytes
+  Max order: 8
+
+Allocation Statistics:
+  Total allocation attempts: 5
+  Successful allocations: 5
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 0
+  Currently allocated blocks: 5
+
+Split/Merge Operations:
+  Block splits: 7
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 4096 bytes
+  Used memory: 960 bytes
+  Free memory: 3136 bytes
+  Utilization: 23.44%
+
+Fragmentation:
+  Total internal fragmentation: 210 bytes
+  Internal fragmentation ratio: 21.88% of used memory
+  External fragmentation: 3 free block(s) smaller than max size
+> > 
+========================================
+Memory Deallocation Request
+========================================
+
+Deallocation:
+  Block ID: 1
+  Address: 0xfc0
+  Size: 64 bytes (order 2)
+  Attempting to merge with buddy...
+  Performed 1 merge(s)
+> 
+========================================
+Memory Deallocation Request
+========================================
+
+Deallocation:
+  Block ID: 3
+  Address: 0xe00
+  Size: 256 bytes (order 4)
+  Attempting to merge with buddy...
+  No merge possible (buddy not free)
+> 
+========================================
+Memory Deallocation Request
+========================================
+
+Deallocation:
+  Block ID: 5
+  Address: 0xc00
+  Size: 256 bytes (order 4)
+  Attempting to merge with buddy...
+  No merge possible (buddy not free)
+> > 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #6:
+  Requested: 80 bytes
+  Rounded to: 128 bytes (order 3)
+  SUCCESS: Allocated block_id=6 at address 0xf80 (size=128 bytes)
+  Internal fragmentation: 48 bytes (37.50%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #7:
+  Requested: 180 bytes
+  Rounded to: 256 bytes (order 4)
+  SUCCESS: Allocated block_id=7 at address 0xc00 (size=256 bytes)
+  Internal fragmentation: 76 bytes (29.69%)
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 002 | 0x0f00 | 00100 -> 00128 | 0028 bytes (21.9%)
+Block 004 | 0x0d00 | 00200 -> 00256 | 0056 bytes (21.9%)
+Block 006 | 0x0f80 | 00080 -> 00128 | 0048 bytes (37.5%)
+Block 007 | 0x0c00 | 00180 -> 00256 | 0076 bytes (29.7%)
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): empty
+Order 02 (000064 bytes): empty
+Order 03 (000128 bytes): empty
+Order 04 (000256 bytes): [0x0e00] (1 block)
+Order 05 (000512 bytes): empty
+Order 06 (001024 bytes): [0x0800] (1 block)
+Order 07 (002048 bytes): [0x0000] (1 block)
+Order 08 (004096 bytes): empty
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 4096 bytes
+  Min block size: 16 bytes
+  Max order: 8
+
+Allocation Statistics:
+  Total allocation attempts: 7
+  Successful allocations: 7
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 3
+  Currently allocated blocks: 4
+
+Split/Merge Operations:
+  Block splits: 7
+  Block merges: 1
+
+Memory Utilization:
+  Total memory: 4096 bytes
+  Used memory: 768 bytes
+  Free memory: 3328 bytes
+  Utilization: 18.75%
+
+Fragmentation:
+  Total internal fragmentation: 208 bytes
+  Internal fragmentation ratio: 27.08% of used memory
+  External fragmentation: 3 free block(s) smaller than max size
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> > Verbose mode: ON
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+
+--- Address Translation ---
+Virtual address: 0x3e8 (1000)
+Page number: 3
+Offset: 232
+Result: PAGE FAULT
+Handling page fault for page 3...
+Found free frame: 0
+Loading page 3 into frame 0
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+Writing to address 232:
+  [X] L1 WRITE MISS (+1 cycles) -> checking L2...
+  [X] L2 WRITE MISS (+10 cycles) -> accessing MEMORY
+  -> MEMORY READ (fetch block) (100 cycles, total: 111 cycles)
+  -> Write-back: data cached as dirty
+  -> Updated L2 (dirty)
+  -> Updated L1 (dirty)
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+
+--- Address Translation ---
+Virtual address: 0x3e8 (1000)
+Page number: 3
+Offset: 232
+Result: PAGE HIT
+Frame number: 0
+Physical address: 0xe8 (232)
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+Writing to address 232:
+  [OK] L1 WRITE HIT (1 cycle) -> Cached (dirty)
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> Verbose mode: OFF
+> > 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 2
+  Page hits: 1
+  Page faults: 1
+  Hit rate: 50.00%
+  Fault rate: 50.00%
+
+Disk Operations (Simulated):
+  Disk reads: 1
+  Disk writes: 0
+  Total disk I/O: 1
+
+Frame Utilization:
+  Frames used: 1 / 64
+  Utilization: 1.56%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 4, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 1
+  Misses: 1
+  Total accesses: 2
+  Hit ratio: 50.00%
+  Writes: 2 (Hits: 1, Misses: 1)
+  Write-backs to memory: 0
+
+L2 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 8, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+  Write-backs to memory: 0
+
+========================================
+Overall Statistics:
+  Total accesses: 2
+  Total reads: 0
+  Total writes: 2
+  L1 hits: 1
+  L2 hits: 0
+  Memory accesses: 1
+  Memory writes: 0
+  Overall hit ratio: 50.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 112
+  Average cycles per access: 56.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> 
+=== PAGE TABLE ===
+Format: Page | Valid | Frame | Dirty | Load_Time | Last_Access | Accesses
+
+Page 000 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 001 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 002 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 003 |   YES  | 000   |  NO   | 00001     | 000002      | 0002
+Page 004 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 005 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 006 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 007 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 008 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 009 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 010 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 011 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 012 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 013 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 014 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 015 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 016 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 017 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 018 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 019 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 020 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 021 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 022 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 023 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 024 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 025 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 026 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 027 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 028 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 029 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 030 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 031 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 032 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 033 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 034 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 035 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 036 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 037 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 038 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 039 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 040 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 041 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 042 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 043 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 044 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 045 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 046 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 047 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 048 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 049 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 050 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 051 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 052 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 053 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 054 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 055 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 056 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 057 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 058 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 059 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 060 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 061 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 062 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 063 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 064 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 065 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 066 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 067 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 068 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 069 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 070 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 071 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 072 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 073 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 074 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 075 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 076 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 077 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 078 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 079 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 080 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 081 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 082 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 083 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 084 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 085 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 086 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 087 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 088 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 089 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 090 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 091 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 092 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 093 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 094 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 095 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 096 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 097 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 098 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 099 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 100 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 101 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 102 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 103 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 104 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 105 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 106 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 107 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 108 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 109 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 110 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 111 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 112 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 113 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 114 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 115 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 116 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 117 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 118 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 119 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 120 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 121 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 122 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 123 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 124 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 125 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 126 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 127 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 128 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 129 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 130 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 131 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 132 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 133 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 134 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 135 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 136 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 137 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 138 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 139 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 140 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 141 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 142 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 143 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 144 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 145 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 146 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 147 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 148 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 149 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 150 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 151 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 152 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 153 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 154 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 155 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 156 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 157 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 158 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 159 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 160 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 161 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 162 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 163 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 164 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 165 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 166 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 167 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 168 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 169 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 170 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 171 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 172 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 173 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 174 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 175 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 176 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 177 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 178 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 179 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 180 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 181 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 182 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 183 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 184 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 185 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 186 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 187 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 188 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 189 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 190 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 191 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 192 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 193 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 194 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 195 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 196 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 197 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 198 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 199 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 200 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 201 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 202 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 203 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 204 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 205 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 206 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 207 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 208 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 209 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 210 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 211 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 212 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 213 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 214 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 215 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 216 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 217 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 218 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 219 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 220 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 221 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 222 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 223 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 224 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 225 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 226 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 227 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 228 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 229 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 230 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 231 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 232 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 233 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 234 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 235 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 236 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 237 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 238 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 239 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 240 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 241 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 242 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 243 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 244 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 245 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 246 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 247 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 248 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 249 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 250 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 251 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 252 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 253 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 254 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 255 |   NO   |   -   |   -   |     -     |      -      |    -    
+
+Pages in memory: 3 (1/64 frames used)
+> L1 Contents:
+  Set 0:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 1:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 2:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 3:
+    Way 0: Tag=0 [DIRTY] (order=0, lru=3)
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+
+L2 Contents:
+  Set 0:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 1:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 2:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 3:
+    Way 0: Tag=0 [DIRTY] (order=0, lru=2)
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 4:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 5:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 6:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+  Set 7:
+    Way 0: EMPTY
+    Way 1: EMPTY
+    Way 2: EMPTY
+    Way 3: EMPTY
+> > 
+========================================
+Exiting Memory Management Simulator
+Thank you for using the simulator!
+========================================

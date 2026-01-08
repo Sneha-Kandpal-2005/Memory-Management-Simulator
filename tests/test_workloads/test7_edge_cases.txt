@@ -1,0 +1,113 @@
+# Test 7: Edge Cases and Error Handling
+# Tests: Error conditions, boundary cases, recovery mechanisms
+# Expected: Proper error messages, graceful handling of invalid operations
+
+init memory 1000
+
+# Zero-size allocation
+malloc 0
+
+# Oversized allocation
+malloc 5000
+
+# Invalid block ID
+free 9999
+
+# Double free
+malloc 100
+free 1
+free 1
+stats
+
+# Invalid virtual address
+clear
+init memory 8192
+init vm 32768 256 fifo
+read 50000
+stats
+
+# Access without VM/Cache initialization
+clear
+init memory 8192
+read 1000
+write 2000
+stats
+
+# Buddy with non-power-of-2
+clear
+init memory 1500 buddy
+status
+
+# Cache without VM
+clear
+init memory 8192
+init cache 8 64 2way fifo wt 16 64 2way fifo wt 0 64 2way fifo wt
+read 1000
+write 2000
+stats
+
+# Stress allocation until failure (classic)
+clear
+init memory 10000
+set strategy best_fit
+
+malloc 100
+malloc 200
+malloc 150
+malloc 300
+malloc 250
+malloc 400
+malloc 175
+malloc 225
+malloc 180
+malloc 280
+dump
+stats
+
+free 2
+free 4
+free 6
+free 8
+
+malloc 190
+malloc 290
+dump
+stats
+
+# Buddy allocation stress
+clear
+init memory 4096 buddy
+
+malloc 50
+malloc 100
+malloc 150
+malloc 200
+malloc 250
+dump
+stats
+
+free 1
+free 3
+free 5
+
+malloc 80
+malloc 180
+dump
+stats
+
+# Complex integration with dirty pages
+clear
+init memory 16384
+init vm 65536 256 lru
+init cache 16 64 4way lru wb 32 64 4way lru wb 0 64 4way lru wb
+
+verbose on
+write 1000
+write 1000
+verbose off
+
+stats
+page_table
+cache_contents
+
+exit

@@ -1,0 +1,108 @@
+# Test 6: Fully Integrated System (VM + Cache + Memory)
+# Tests: Complete flow - Virtual → Page Table → Physical → Cache → Memory
+# Expected: All subsystems working together, coordinated read/write operations
+
+# Initialize full system
+init memory 16384
+init vm 65536 256 lru
+init cache 8 64 2way lru wt 16 64 2way lru wt 32 64 2way lru wt
+status
+
+# First Integrated Read Access (verbose for detailed flow)
+verbose on
+read 1000
+verbose off
+stats
+
+# First Integrated Write Access
+verbose on
+write 2000
+verbose off
+stats
+
+# Spatial Locality (same page, same cache block)
+read 3000
+read 3004
+read 3008
+read 3012
+read 3016
+read 3020
+stats
+
+# Temporal Locality (repeated access)
+read 4000
+read 4000
+read 4000
+read 4000
+stats
+
+# Mixed Read/Write with Integration
+read 5000
+write 5000
+read 5000
+write 5100
+read 5100
+stats
+page_table
+cache_contents
+
+# Write-Back Policy in Integrated System
+clear
+init memory 16384
+init vm 65536 256 lru
+init cache 8 64 2way lru wb 16 64 2way lru wb 32 64 2way lru wb
+
+write 1000
+write 1000
+write 1000
+stats
+
+# Working Set Pattern (array loop simulation)
+clear
+init memory 16384
+init vm 65536 256 lru
+init cache 16 64 4way lru wt 32 64 4way lru wt 0 64 4way lru wt
+
+read 5000
+read 5100
+read 5200
+read 5300
+read 5000
+read 5100
+read 5200
+read 5300
+stats
+
+# Memory Allocation + Integrated Access
+clear
+init memory 16384
+init vm 65536 256 lru
+init cache 8 64 2way lru wt 16 64 2way lru wt 0 64 2way lru wt
+
+malloc 500
+malloc 300
+malloc 200
+
+read 100
+write 400
+read 700
+stats
+dump
+
+# Buddy Allocation + Integrated Access
+clear
+init memory 8192 buddy
+init vm 32768 256 lru
+init cache 16 64 4way lru wt 32 64 4way lru wt 0 64 4way lru wt
+
+malloc 256
+malloc 512
+malloc 128
+
+read 0
+write 256
+read 768
+stats
+dump
+
+exit

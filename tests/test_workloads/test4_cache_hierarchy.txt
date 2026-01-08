@@ -1,0 +1,86 @@
+# Test 4: Cache Hierarchy
+# Tests: Multi-level cache, replacement policies, read/write operations
+# Expected: Cache hits/misses across levels, hierarchy behavior
+
+# Initialize L1, L2, L3 Cache with Write-Through
+init memory 8192
+init cache 8 64 2way fifo wt 16 64 2way fifo wt 32 64 2way fifo wt
+
+status
+
+# L1 Cache Read Hit
+read 100
+read 100
+read 100
+stats
+
+# Cache Block Alignment (same 64-byte block)
+read 0
+read 32
+read 63
+stats
+
+# L2 Cache Access (fill L1, spill to L2)
+read 0
+read 64
+read 128
+read 192
+read 256
+read 320
+read 384
+read 448
+read 512
+stats
+cache_contents
+
+# L3 Cache Access
+read 1000
+read 2000
+read 3000
+read 4000
+read 5000
+read 6000
+read 7000
+read 8000
+read 9000
+read 10000
+stats
+
+# Memory Access (miss all levels)
+read 50000
+stats
+
+# Test Write-Back Policy
+clear
+init memory 4096
+init cache 4 64 fully lru wb 8 64 fully lru wb 0 64 fully lru wb
+
+write 100
+write 100
+write 100
+stats
+
+# Write-Back with Eviction
+write 0
+write 64
+write 128
+write 192
+write 256
+stats
+cache_contents
+
+# Compare FIFO vs LRU
+clear
+init memory 8192
+init cache 4 64 fully lru wt 0 64 fully lru wt 0 64 fully lru wt
+
+read 100
+read 200
+read 300
+read 400
+read 100
+read 500
+read 100
+stats
+
+exit

@@ -1,0 +1,201 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 10000 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 10000 bytes
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: CLASSIC ALLOCATOR
+    Size: 10000 bytes
+    Strategy: First/Best/Worst Fit (configurable)
+
+  Virtual Memory:
+    Status: DISABLED
+    Using direct physical addressing
+
+  Cache Hierarchy:
+    Status: DISABLED
+    Direct memory access
+
+  Integration Flow:
+    Physical Address -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> Allocation strategy set to: First Fit
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=1 at address=0x0000 (100 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=2 at address=0x0064 (200 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=3 at address=0x012c (150 bytes)
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] USED (id=1)
+[0x0064 - 0x012b] USED (id=2)
+[0x012c - 0x01c1] USED (id=3)
+[0x01c2 - 0x270f] FREE
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 10000 bytes
+Used memory: 450 bytes
+Free memory: 9550 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 3
+Successful: 3
+Failed: 0
+Success rate: 100.00%
+
+> > Unknown command. Type 'help' for available commands.
+> Allocation strategy set to: Best Fit
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 2 freed and merged
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=4 at address=0x0064 (180 bytes)
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] USED (id=1)
+[0x0064 - 0x0117] USED (id=4)
+[0x0118 - 0x012b] FREE
+[0x012c - 0x01c1] USED (id=3)
+[0x01c2 - 0x270f] FREE
+
+> > Unknown command. Type 'help' for available commands.
+> Allocation strategy set to: Worst Fit
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=5 at address=0x01c2 (50 bytes)
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] USED (id=1)
+[0x0064 - 0x0117] USED (id=4)
+[0x0118 - 0x012b] FREE
+[0x012c - 0x01c1] USED (id=3)
+[0x01c2 - 0x01f3] USED (id=5)
+[0x01f4 - 0x270f] FREE
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 1 freed and merged
+> 
+========================================
+Memory Deallocation Request
+========================================
+Block 3 freed and merged
+> 
+=== Memory Layout ===
+[0x0000 - 0x0063] FREE
+[0x0064 - 0x0117] USED (id=4)
+[0x0118 - 0x01c1] FREE
+[0x01c2 - 0x01f3] USED (id=5)
+[0x01f4 - 0x270f] FREE
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 10000 bytes
+Used memory: 230 bytes
+Free memory: 9770 bytes
+Free blocks: 3
+External fragmentation: 2.76%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 5
+Successful: 5
+Failed: 0
+Success rate: 100.00%
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+Error: Not enough memory to allocate 15000 bytes
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 10000 bytes
+Used memory: 230 bytes
+Free memory: 9770 bytes
+Free blocks: 3
+External fragmentation: 2.76%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 6
+Successful: 5
+Failed: 1
+Success rate: 83.33%
+
+> > Unknown command. Type 'help' for available commands.
+> 

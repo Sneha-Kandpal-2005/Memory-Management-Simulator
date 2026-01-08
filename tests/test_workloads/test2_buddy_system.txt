@@ -1,0 +1,44 @@
+# Test 2: Buddy System Allocator
+# Tests: Power-of-2 allocation, splitting, merging, internal fragmentation
+# Expected: Rounding to power-of-2, buddy merging, fragmentation tracking
+
+# Initialize 2KB memory with buddy system
+init memory 2048 buddy
+status
+
+# Power-of-2 Allocation (shows internal fragmentation)
+malloc 100
+malloc 50
+malloc 200
+
+dump
+stats
+
+# Block Splitting
+malloc 32
+dump
+stats
+
+# Buddy Merging
+free 1
+free 2
+dump
+stats
+
+# Non-Power-of-2 Memory Size (auto-adjustment)
+clear
+init memory 1500 buddy
+status
+
+# Complete Allocation
+malloc 512
+malloc 512
+malloc 512
+malloc 512
+dump
+
+# Out of memory
+malloc 64
+stats
+
+exit

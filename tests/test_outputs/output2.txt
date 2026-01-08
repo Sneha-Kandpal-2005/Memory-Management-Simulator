@@ -1,0 +1,444 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Buddy Allocator initialized:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+  Orders: 0 (16 bytes) to 7 (2048 bytes)
+Memory Allocator: BUDDY SYSTEM
+Physical Memory: 2048 bytes
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: BUDDY SYSTEM
+    Size: 2048 bytes (power-of-2)
+    Min Block: 16 bytes
+
+  Virtual Memory:
+    Status: DISABLED
+    Using direct physical addressing
+
+  Cache Hierarchy:
+    Status: DISABLED
+    Direct memory access
+
+  Integration Flow:
+    Physical Address -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #1:
+  Requested: 100 bytes
+  Rounded to: 128 bytes (order 3)
+  No free block at order 3, splitting larger blocks...
+  SUCCESS: Allocated block_id=1 at address 0x780 (size=128 bytes)
+  Internal fragmentation: 28 bytes (21.88%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #2:
+  Requested: 50 bytes
+  Rounded to: 64 bytes (order 2)
+  No free block at order 2, splitting larger blocks...
+  SUCCESS: Allocated block_id=2 at address 0x740 (size=64 bytes)
+  Internal fragmentation: 14 bytes (21.88%)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #3:
+  Requested: 200 bytes
+  Rounded to: 256 bytes (order 4)
+  SUCCESS: Allocated block_id=3 at address 0x600 (size=256 bytes)
+  Internal fragmentation: 56 bytes (21.88%)
+> > 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block   1 | 0x0780 | 00100 -> 00128 | 0028 bytes (21.9%)
+Block 002 | 0x0740 | 00050 -> 00064 | 0014 bytes (21.9%)
+Block 003 | 0x0600 | 00200 -> 00256 | 0056 bytes (21.9%)
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): empty
+Order 02 (000064 bytes): [0x0700] (1 block)
+Order 03 (000128 bytes): empty
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): [0x0400] (1 block)
+Order 06 (001024 bytes): [0x0000] (1 block)
+Order 07 (002048 bytes): empty
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+
+Allocation Statistics:
+  Total allocation attempts: 3
+  Successful allocations: 3
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 0
+  Currently allocated blocks: 3
+
+Split/Merge Operations:
+  Block splits: 5
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 2048 bytes
+  Used memory: 448 bytes
+  Free memory: 1600 bytes
+  Utilization: 21.88%
+
+Fragmentation:
+  Total internal fragmentation: 98 bytes
+  Internal fragmentation ratio: 21.88% of used memory
+  External fragmentation: 3 free block(s) smaller than max size
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #4:
+  Requested: 32 bytes
+  Rounded to: 32 bytes (order 1)
+  No free block at order 1, splitting larger blocks...
+  SUCCESS: Allocated block_id=4 at address 0x720 (size=32 bytes)
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 001 | 0x0780 | 00100 -> 00128 | 0028 bytes (21.9%)
+Block 002 | 0x0740 | 00050 -> 00064 | 0014 bytes (21.9%)
+Block 003 | 0x0600 | 00200 -> 00256 | 0056 bytes (21.9%)
+Block 004 | 0x0720 | 00032 -> 00032 | 0000 bytes
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): [0x0700] (1 block)
+Order 02 (000064 bytes): empty
+Order 03 (000128 bytes): empty
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): [0x0400] (1 block)
+Order 06 (001024 bytes): [0x0000] (1 block)
+Order 07 (002048 bytes): empty
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+
+Allocation Statistics:
+  Total allocation attempts: 4
+  Successful allocations: 4
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 0
+  Currently allocated blocks: 4
+
+Split/Merge Operations:
+  Block splits: 6
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 2048 bytes
+  Used memory: 480 bytes
+  Free memory: 1568 bytes
+  Utilization: 23.44%
+
+Fragmentation:
+  Total internal fragmentation: 98 bytes
+  Internal fragmentation ratio: 20.42% of used memory
+  External fragmentation: 3 free block(s) smaller than max size
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Deallocation Request
+========================================
+
+Deallocation:
+  Block ID: 1
+  Address: 0x780
+  Size: 128 bytes (order 3)
+  Attempting to merge with buddy...
+  No merge possible (buddy not free)
+> 
+========================================
+Memory Deallocation Request
+========================================
+
+Deallocation:
+  Block ID: 2
+  Address: 0x740
+  Size: 64 bytes (order 2)
+  Attempting to merge with buddy...
+  No merge possible (buddy not free)
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 003 | 0x0600 | 00200 -> 00256 | 0056 bytes (21.9%)
+Block 004 | 0x0720 | 00032 -> 00032 | 0000 bytes
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): [0x0700] (1 block)
+Order 02 (000064 bytes): [0x0740] (1 block)
+Order 03 (000128 bytes): [0x0780] (1 block)
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): [0x0400] (1 block)
+Order 06 (001024 bytes): [0x0000] (1 block)
+Order 07 (002048 bytes): empty
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+
+Allocation Statistics:
+  Total allocation attempts: 4
+  Successful allocations: 4
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 2
+  Currently allocated blocks: 2
+
+Split/Merge Operations:
+  Block splits: 6
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 2048 bytes
+  Used memory: 288 bytes
+  Free memory: 1760 bytes
+  Utilization: 14.06%
+
+Fragmentation:
+  Total internal fragmentation: 56 bytes
+  Internal fragmentation ratio: 19.44% of used memory
+  External fragmentation: 5 free block(s) smaller than max size
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Warning: Buddy allocator requires power-of-2 size.
+Adjusting to: 2048 bytes
+Buddy Allocator initialized:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+  Orders: 0 (16 bytes) to 7 (2048 bytes)
+Memory Allocator: BUDDY SYSTEM
+Physical Memory: 2048 bytes
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: BUDDY SYSTEM
+    Size: 2048 bytes (power-of-2)
+    Min Block: 16 bytes
+
+  Virtual Memory:
+    Status: DISABLED
+    Using direct physical addressing
+
+  Cache Hierarchy:
+    Status: DISABLED
+    Direct memory access
+
+  Integration Flow:
+    Physical Address -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #1:
+  Requested: 512 bytes
+  Rounded to: 512 bytes (order 5)
+  No free block at order 5, splitting larger blocks...
+  SUCCESS: Allocated block_id=1 at address 0x600 (size=512 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #2:
+  Requested: 512 bytes
+  Rounded to: 512 bytes (order 5)
+  SUCCESS: Allocated block_id=2 at address 0x400 (size=512 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #3:
+  Requested: 512 bytes
+  Rounded to: 512 bytes (order 5)
+  No free block at order 5, splitting larger blocks...
+  SUCCESS: Allocated block_id=3 at address 0x200 (size=512 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #4:
+  Requested: 512 bytes
+  Rounded to: 512 bytes (order 5)
+  SUCCESS: Allocated block_id=4 at address 0x0 (size=512 bytes)
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 001 | 0x0600 | 00512 -> 00512 | 0000 bytes
+Block 002 | 0x0400 | 00512 -> 00512 | 0000 bytes
+Block 003 | 0x0200 | 00512 -> 00512 | 0000 bytes
+Block 004 | 0x0000 | 00512 -> 00512 | 0000 bytes
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): empty
+Order 02 (000064 bytes): empty
+Order 03 (000128 bytes): empty
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): empty
+Order 06 (001024 bytes): empty
+Order 07 (002048 bytes): empty
+
+*** All memory is allocated ***
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #5:
+  Requested: 64 bytes
+  Rounded to: 64 bytes (order 2)
+  No free block at order 2, splitting larger blocks...
+  ERROR: Out of memory (cannot split)
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 2048 bytes
+  Min block size: 16 bytes
+  Max order: 7
+
+Allocation Statistics:
+  Total allocation attempts: 5
+  Successful allocations: 4
+  Failed allocations: 1
+  Success rate: 80.00%
+  Total deallocations: 0
+  Currently allocated blocks: 4
+
+Split/Merge Operations:
+  Block splits: 3
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 2048 bytes
+  Used memory: 2048 bytes
+  Free memory: 0 bytes
+  Utilization: 100.00%
+
+Fragmentation:
+  Total internal fragmentation: 0 bytes
+  Internal fragmentation ratio: 0.00% of used memory
+  External fragmentation: N/A (no free memory)
+> > 
+========================================
+Exiting Memory Management Simulator
+Thank you for using the simulator!
+========================================

@@ -1,0 +1,2760 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2 -> L3
+========================================
+> 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: CLASSIC ALLOCATOR
+    Size: 16384 bytes
+    Strategy: First/Best/Worst Fit (configurable)
+
+  Virtual Memory:
+    Status: ENABLED
+    Address Translation: Active
+
+  Cache Hierarchy:
+    Status: ENABLED
+    Levels: L1, L2, L3
+
+  Integration Flow:
+    Virtual Address -> Page Table -> Physical Address -> Cache Hierarchy -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> Verbose mode: ON
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+
+--- Address Translation ---
+Virtual address: 0x3e8 (1000)
+Page number: 3
+Offset: 232
+Result: PAGE FAULT
+Handling page fault for page 3...
+Found free frame: 0
+Loading page 3 into frame 0
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+Reading address 232:
+  [X] L1 MISS (+1 cycles) -> checking L2...
+  [X] L2 MISS (+10 cycles) -> checking L3...
+  [X] L3 MISS (+50 cycles) -> accessing MEMORY
+  -> MEMORY ACCESS (+100 cycles, total: 161 cycles)
+  -> Updated L3
+  -> Updated L2
+  -> Updated L1
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> Verbose mode: OFF
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 1
+  Page hits: 0
+  Page faults: 1
+  Hit rate: 0.00%
+  Fault rate: 100.00%
+
+Disk Operations (Simulated):
+  Disk reads: 1
+  Disk writes: 0
+  Total disk I/O: 1
+
+Frame Utilization:
+  Frames used: 1 / 64
+  Utilization: 1.56%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 1
+  Total reads: 1
+  Total writes: 0
+  L1 hits: 0
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 1
+  Memory writes: 0
+  Overall hit ratio: 0.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 161
+  Average cycles per access: 161.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> Verbose mode: ON
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x7d0 (2000)
+
+--- Address Translation ---
+Virtual address: 0x7d0 (2000)
+Page number: 7
+Offset: 208
+Result: PAGE FAULT
+Handling page fault for page 7...
+Found free frame: 1
+Loading page 7 into frame 1
+  [OK] Translation successful
+  Output: Physical Address 0x1d0 (464)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+Writing to address 464:
+  [X] L1 WRITE MISS (+1 cycles) -> checking L2...
+  [X] L2 WRITE MISS (+10 cycles) -> checking L3...
+  [X] L3 WRITE MISS (+50 cycles) -> accessing MEMORY
+  -> MEMORY READ+WRITE (100 cycles, total: 161 cycles)
+  -> Write-through: data written to memory
+  -> Updated L3 (clean)
+  -> Updated L2 (clean)
+  -> Updated L1 (clean)
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x1d0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x7d0 (2000)
+  Physical Address:  0x1d0 (464)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> Verbose mode: OFF
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 2
+  Page hits: 0
+  Page faults: 2
+  Hit rate: 0.00%
+  Fault rate: 100.00%
+
+Disk Operations (Simulated):
+  Disk reads: 2
+  Disk writes: 0
+  Total disk I/O: 2
+
+Frame Utilization:
+  Frames used: 2 / 64
+  Utilization: 3.12%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 2
+  Total reads: 1
+  Total writes: 1
+  L1 hits: 0
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 2
+  Memory writes: 1
+  Overall hit ratio: 0.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 322
+  Average cycles per access: 161.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbb8 (3000)
+Virtual 0xbb8 [FAULT] → Physical 0x2b8
+  [OK] Translation successful
+  Output: Physical Address 0x2b8 (696)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2b8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbb8 (3000)
+  Physical Address:  0x2b8 (696)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbbc (3004)
+Virtual 0xbbc → Physical 0x2bc [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x2bc (700)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbbc (3004)
+  Physical Address:  0x2bc (700)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbc0 (3008)
+Virtual 0xbc0 → Physical 0x2c0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x2c0 (704)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2c0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbc0 (3008)
+  Physical Address:  0x2c0 (704)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbc4 (3012)
+Virtual 0xbc4 → Physical 0x2c4 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x2c4 (708)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbc4 (3012)
+  Physical Address:  0x2c4 (708)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbc8 (3016)
+Virtual 0xbc8 → Physical 0x2c8 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x2c8 (712)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbc8 (3016)
+  Physical Address:  0x2c8 (712)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xbcc (3020)
+Virtual 0xbcc → Physical 0x2cc [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x2cc (716)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xbcc (3020)
+  Physical Address:  0x2cc (716)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 8
+  Page hits: 5
+  Page faults: 3
+  Hit rate: 62.50%
+  Fault rate: 37.50%
+
+Disk Operations (Simulated):
+  Disk reads: 3
+  Disk writes: 0
+  Total disk I/O: 3
+
+Frame Utilization:
+  Frames used: 3 / 64
+  Utilization: 4.69%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 4
+  Misses: 4
+  Total accesses: 8
+  Hit ratio: 50.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 4
+  Total accesses: 4
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 4
+  Total accesses: 4
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 8
+  Total reads: 7
+  Total writes: 1
+  L1 hits: 4
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 4
+  Memory writes: 1
+  Overall hit ratio: 50.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 648
+  Average cycles per access: 81.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xfa0 (4000)
+Virtual 0xfa0 [FAULT] → Physical 0x3a0
+  [OK] Translation successful
+  Output: Physical Address 0x3a0 (928)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3a0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xfa0 (4000)
+  Physical Address:  0x3a0 (928)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xfa0 (4000)
+Virtual 0xfa0 → Physical 0x3a0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x3a0 (928)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xfa0 (4000)
+  Physical Address:  0x3a0 (928)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xfa0 (4000)
+Virtual 0xfa0 → Physical 0x3a0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x3a0 (928)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xfa0 (4000)
+  Physical Address:  0x3a0 (928)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0xfa0 (4000)
+Virtual 0xfa0 → Physical 0x3a0 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x3a0 (928)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0xfa0 (4000)
+  Physical Address:  0x3a0 (928)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 12
+  Page hits: 8
+  Page faults: 4
+  Hit rate: 66.67%
+  Fault rate: 33.33%
+
+Disk Operations (Simulated):
+  Disk reads: 4
+  Disk writes: 0
+  Total disk I/O: 4
+
+Frame Utilization:
+  Frames used: 4 / 64
+  Utilization: 6.25%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 7
+  Misses: 5
+  Total accesses: 12
+  Hit ratio: 58.33%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 5
+  Total accesses: 5
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 5
+  Total accesses: 5
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 12
+  Total reads: 11
+  Total writes: 1
+  L1 hits: 7
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 5
+  Memory writes: 1
+  Overall hit ratio: 58.33%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 812
+  Average cycles per access: 67.67
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1388 (5000)
+Virtual 0x1388 [FAULT] → Physical 0x488
+  [OK] Translation successful
+  Output: Physical Address 0x488 (1160)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x488
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1388 (5000)
+  Physical Address:  0x488 (1160)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1388 (5000)
+Virtual 0x1388 → Physical 0x488 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x488 (1160)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1388 (5000)
+  Physical Address:  0x488 (1160)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1388 (5000)
+Virtual 0x1388 → Physical 0x488 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x488 (1160)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1388 (5000)
+  Physical Address:  0x488 (1160)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x13ec (5100)
+Virtual 0x13ec → Physical 0x4ec [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x4ec (1260)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x4ec
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x13ec (5100)
+  Physical Address:  0x4ec (1260)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x13ec (5100)
+Virtual 0x13ec → Physical 0x4ec [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x4ec (1260)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x13ec (5100)
+  Physical Address:  0x4ec (1260)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 17
+  Page hits: 12
+  Page faults: 5
+  Hit rate: 70.59%
+  Fault rate: 29.41%
+
+Disk Operations (Simulated):
+  Disk reads: 5
+  Disk writes: 0
+  Total disk I/O: 5
+
+Frame Utilization:
+  Frames used: 5 / 64
+  Utilization: 7.81%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 10
+  Misses: 7
+  Total accesses: 17
+  Hit ratio: 58.82%
+  Writes: 3 (Hits: 1, Misses: 2)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 7
+  Total accesses: 7
+  Hit ratio: 0.00%
+  Writes: 2 (Hits: 0, Misses: 2)
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 7
+  Total accesses: 7
+  Hit ratio: 0.00%
+  Writes: 2 (Hits: 0, Misses: 2)
+
+========================================
+Overall Statistics:
+  Total accesses: 17
+  Total reads: 14
+  Total writes: 3
+  L1 hits: 10
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 7
+  Memory writes: 3
+  Overall hit ratio: 58.82%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 1137
+  Average cycles per access: 66.88
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> 
+=== PAGE TABLE ===
+Format: Page | Valid | Frame | Dirty | Load_Time | Last_Access | Accesses
+
+Page   0 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   1 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   2 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   3 |   YES  |   0   |  NO   |     1     |      1      |    1
+Page   4 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   5 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   6 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   7 |   YES  |   1   |  NO   |     2     |      2      |    1
+Page   8 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page   9 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  10 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  11 |   YES  |   2   |  NO   |     3     |      8      |    6
+Page  12 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  13 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  14 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  15 |   YES  |   3   |  NO   |     9     |     12      |    4
+Page  16 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  17 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  18 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  19 |   YES  |   4   |  NO   |    13     |     17      |    5
+Page  20 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  21 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  22 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  23 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  24 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  25 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  26 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  27 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  28 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  29 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  30 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  31 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  32 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  33 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  34 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  35 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  36 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  37 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  38 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  39 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  40 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  41 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  42 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  43 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  44 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  45 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  46 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  47 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  48 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  49 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  50 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  51 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  52 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  53 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  54 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  55 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  56 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  57 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  58 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  59 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  60 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  61 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  62 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  63 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  64 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  65 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  66 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  67 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  68 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  69 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  70 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  71 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  72 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  73 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  74 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  75 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  76 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  77 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  78 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  79 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  80 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  81 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  82 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  83 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  84 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  85 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  86 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  87 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  88 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  89 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  90 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  91 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  92 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  93 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  94 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  95 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  96 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  97 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  98 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page  99 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 100 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 101 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 102 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 103 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 104 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 105 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 106 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 107 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 108 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 109 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 110 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 111 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 112 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 113 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 114 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 115 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 116 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 117 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 118 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 119 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 120 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 121 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 122 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 123 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 124 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 125 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 126 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 127 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 128 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 129 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 130 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 131 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 132 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 133 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 134 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 135 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 136 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 137 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 138 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 139 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 140 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 141 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 142 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 143 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 144 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 145 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 146 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 147 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 148 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 149 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 150 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 151 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 152 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 153 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 154 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 155 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 156 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 157 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 158 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 159 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 160 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 161 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 162 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 163 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 164 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 165 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 166 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 167 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 168 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 169 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 170 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 171 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 172 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 173 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 174 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 175 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 176 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 177 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 178 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 179 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 180 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 181 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 182 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 183 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 184 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 185 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 186 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 187 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 188 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 189 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 190 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 191 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 192 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 193 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 194 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 195 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 196 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 197 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 198 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 199 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 200 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 201 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 202 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 203 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 204 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 205 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 206 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 207 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 208 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 209 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 210 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 211 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 212 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 213 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 214 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 215 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 216 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 217 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 218 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 219 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 220 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 221 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 222 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 223 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 224 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 225 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 226 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 227 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 228 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 229 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 230 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 231 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 232 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 233 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 234 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 235 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 236 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 237 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 238 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 239 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 240 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 241 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 242 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 243 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 244 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 245 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 246 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 247 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 248 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 249 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 250 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 251 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 252 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 253 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 254 |   NO   |   -   |   -   |     -     |      -      |    -    
+Page 255 |   NO   |   -   |   -   |     -     |      -      |    -    
+
+Pages in memory: 3, 7, 11, 15, 19 (5/64 frames used)
+> L1 Contents:
+  Set 0:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 1:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 2:
+    Way 0: Tag=4 [CLEAN] (order=5, lru=21)
+    Way 1: Tag=3 [CLEAN] (order=4, lru=17)
+  Set 3:
+    Way 0: Tag=2 [CLEAN] (order=3, lru=12)
+    Way 1: Tag=4 [CLEAN] (order=6, lru=24)
+
+L2 Contents:
+  Set 0:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 1:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 2:
+    Way 0: Tag=1 [CLEAN] (order=2, lru=6)
+    Way 1: Tag=2 [CLEAN] (order=5, lru=12)
+  Set 3:
+    Way 0: Tag=2 [CLEAN] (order=6, lru=14)
+    Way 1: Tag=1 [CLEAN] (order=3, lru=8)
+  Set 4:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 5:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 6:
+    Way 0: Tag=1 [CLEAN] (order=4, lru=10)
+    Way 1: EMPTY
+  Set 7:
+    Way 0: Tag=0 [CLEAN] (order=1, lru=4)
+    Way 1: EMPTY
+
+L3 Contents:
+  Set 0:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 1:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 2:
+    Way 0: Tag=1 [CLEAN] (order=5, lru=12)
+    Way 1: EMPTY
+  Set 3:
+    Way 0: Tag=0 [CLEAN] (order=0, lru=2)
+    Way 1: Tag=1 [CLEAN] (order=6, lru=14)
+  Set 4:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 5:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 6:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 7:
+    Way 0: Tag=0 [CLEAN] (order=1, lru=4)
+    Way 1: EMPTY
+  Set 8:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 9:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 10:
+    Way 0: Tag=0 [CLEAN] (order=2, lru=6)
+    Way 1: EMPTY
+  Set 11:
+    Way 0: Tag=0 [CLEAN] (order=3, lru=8)
+    Way 1: EMPTY
+  Set 12:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 13:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 14:
+    Way 0: Tag=0 [CLEAN] (order=4, lru=10)
+    Way 1: EMPTY
+  Set 15:
+    Way 0: EMPTY
+    Way 1: EMPTY
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2 -> L3
+========================================
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 [FAULT] → Physical 0xe8
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0xe8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 → Physical 0xe8 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x3e8 (1000)
+Virtual 0x3e8 → Physical 0xe8 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0xe8 (232)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x3e8 (1000)
+  Physical Address:  0xe8 (232)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 3
+  Page hits: 2
+  Page faults: 1
+  Hit rate: 66.67%
+  Fault rate: 33.33%
+
+Disk Operations (Simulated):
+  Disk reads: 1
+  Disk writes: 0
+  Total disk I/O: 1
+
+Frame Utilization:
+  Frames used: 1 / 64
+  Utilization: 1.56%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 2
+  Misses: 1
+  Total accesses: 3
+  Hit ratio: 66.67%
+  Writes: 3 (Hits: 2, Misses: 1)
+  Write-backs to memory: 0
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+  Write-backs to memory: 0
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+  Write-backs to memory: 0
+
+========================================
+Overall Statistics:
+  Total accesses: 3
+  Total reads: 0
+  Total writes: 3
+  L1 hits: 2
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 1
+  Memory writes: 0
+  Overall hit ratio: 66.67%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 163
+  Average cycles per access: 54.33
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1388 (5000)
+Virtual 0x1388 [FAULT] → Physical 0x88
+  [OK] Translation successful
+  Output: Physical Address 0x88 (136)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x88
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1388 (5000)
+  Physical Address:  0x88 (136)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x13ec (5100)
+Virtual 0x13ec → Physical 0xec [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0xec (236)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xec
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x13ec (5100)
+  Physical Address:  0xec (236)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1450 (5200)
+Virtual 0x1450 [FAULT] → Physical 0x150
+  [OK] Translation successful
+  Output: Physical Address 0x150 (336)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x150
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1450 (5200)
+  Physical Address:  0x150 (336)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x14b4 (5300)
+Virtual 0x14b4 → Physical 0x1b4 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x1b4 (436)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1b4
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x14b4 (5300)
+  Physical Address:  0x1b4 (436)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1388 (5000)
+Virtual 0x1388 → Physical 0x88 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x88 (136)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1388 (5000)
+  Physical Address:  0x88 (136)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x13ec (5100)
+Virtual 0x13ec → Physical 0xec [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0xec (236)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x13ec (5100)
+  Physical Address:  0xec (236)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x1450 (5200)
+Virtual 0x1450 → Physical 0x150 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x150 (336)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x1450 (5200)
+  Physical Address:  0x150 (336)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x14b4 (5300)
+Virtual 0x14b4 → Physical 0x1b4 [HIT]
+  [OK] Translation successful
+  Output: Physical Address 0x1b4 (436)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x14b4 (5300)
+  Physical Address:  0x1b4 (436)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 0 bytes
+Free memory: 16384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 8
+  Page hits: 6
+  Page faults: 2
+  Hit rate: 75.00%
+  Fault rate: 25.00%
+
+Disk Operations (Simulated):
+  Disk reads: 2
+  Disk writes: 0
+  Total disk I/O: 2
+
+Frame Utilization:
+  Frames used: 2 / 64
+  Utilization: 3.12%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 4, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 4
+  Misses: 4
+  Total accesses: 8
+  Hit ratio: 50.00%
+
+L2 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 8, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 4
+  Total accesses: 4
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 8
+  Total reads: 8
+  Total writes: 0
+  L1 hits: 4
+  L2 hits: 0
+  Memory accesses: 4
+  Memory writes: 0
+  Overall hit ratio: 50.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 448
+  Average cycles per access: 56.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 16384 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 16384 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 65536 bytes
+Physical memory size: 16384 bytes
+Page size: 256 bytes
+Virtual pages: 256
+Physical frames: 64
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> > 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=1 at address=0x0000 (500 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=2 at address=0x01f4 (300 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+Allocated block id=3 at address=0x0320 (200 bytes)
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x64 (100)
+Virtual 0x64 [FAULT] → Physical 0x64
+  [OK] Translation successful
+  Output: Physical Address 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x64
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x64 (100)
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x190 (400)
+Virtual 0x190 [FAULT] → Physical 0x190
+  [OK] Translation successful
+  Output: Physical Address 0x190 (400)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x190
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x190 (400)
+  Physical Address:  0x190 (400)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x2bc (700)
+Virtual 0x2bc [FAULT] → Physical 0x2bc
+  [OK] Translation successful
+  Output: Physical Address 0x2bc (700)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2bc
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x2bc (700)
+  Physical Address:  0x2bc (700)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 16384 bytes
+Used memory: 1000 bytes
+Free memory: 15384 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 3
+Successful: 3
+Failed: 0
+Success rate: 100.00%
+
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 65536 bytes (256 pages)
+  Physical memory: 16384 bytes (64 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 3
+  Page hits: 0
+  Page faults: 3
+  Hit rate: 0.00%
+  Fault rate: 100.00%
+
+Disk Operations (Simulated):
+  Disk reads: 3
+  Disk writes: 0
+  Total disk I/O: 3
+
+Frame Utilization:
+  Frames used: 3 / 64
+  Utilization: 4.69%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 3
+  Total accesses: 3
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 3
+  Total accesses: 3
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 3
+  Total reads: 2
+  Total writes: 1
+  L1 hits: 0
+  L2 hits: 0
+  Memory accesses: 3
+  Memory writes: 1
+  Overall hit ratio: 0.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 333
+  Average cycles per access: 111.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> 
+=== Memory Layout ===
+[0x0000 - 0x01f3] USED (id=1)
+[0x01f4 - 0x031f] USED (id=2)
+[0x0320 - 0x03e7] USED (id=3)
+[0x03e8 - 0x3fff] FREE
+
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Buddy Allocator initialized:
+  Total memory: 8192 bytes
+  Min block size: 16 bytes
+  Max order: 9
+  Orders: 0 (16 bytes) to 9 (8192 bytes)
+Memory Allocator: BUDDY SYSTEM
+Physical Memory: 8192 bytes
+========================================
+> 
+========================================
+Initializing Virtual Memory
+========================================
+
+=== Virtual Memory Simulator Initialized ===
+Virtual memory size: 32768 bytes
+Physical memory size: 8192 bytes
+Page size: 256 bytes
+Virtual pages: 128
+Physical frames: 32
+Replacement policy: LRU
+==========================================
+
+Virtual Memory: ENABLED
+Flow: Virtual Address -> Page Table -> Physical Address
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> > 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #1:
+  Requested: 256 bytes
+  Rounded to: 256 bytes (order 4)
+  No free block at order 4, splitting larger blocks...
+  SUCCESS: Allocated block_id=1 at address 0x1f00 (size=256 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #2:
+  Requested: 512 bytes
+  Rounded to: 512 bytes (order 5)
+  SUCCESS: Allocated block_id=2 at address 0x1c00 (size=512 bytes)
+> 
+========================================
+Memory Allocation Request
+========================================
+
+Allocation request #3:
+  Requested: 128 bytes
+  Rounded to: 128 bytes (order 3)
+  No free block at order 3, splitting larger blocks...
+  SUCCESS: Allocated block_id=3 at address 0x1e80 (size=128 bytes)
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x0 (0)
+Virtual 0x0 [FAULT] → Physical 0x0
+  [OK] Translation successful
+  Output: Physical Address 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x0
+  Memory allocator: Buddy System
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x0 (0)
+  Physical Address:  0x0 (0)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x100 (256)
+Virtual 0x100 [FAULT] → Physical 0x100
+  [OK] Translation successful
+  Output: Physical Address 0x100 (256)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x100
+  Memory allocator: Buddy System
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x100 (256)
+  Physical Address:  0x100 (256)
+  Operation: WRITE
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY - Address Translation
+  ---------------------------------------------------
+  Input: Virtual Address 0x300 (768)
+Virtual 0x300 [FAULT] → Physical 0x200
+  [OK] Translation successful
+  Output: Physical Address 0x200 (512)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x200
+  Memory allocator: Buddy System
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Virtual Address:   0x300 (768)
+  Physical Address:  0x200 (512)
+  Operation: READ
+  Flow: VM Translation -> Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== BUDDY ALLOCATOR STATISTICS ===
+
+Configuration:
+  Total memory: 8192 bytes
+  Min block size: 16 bytes
+  Max order: 9
+
+Allocation Statistics:
+  Total allocation attempts: 3
+  Successful allocations: 3
+  Failed allocations: 0
+  Success rate: 100.00%
+  Total deallocations: 0
+  Currently allocated blocks: 3
+
+Split/Merge Operations:
+  Block splits: 6
+  Block merges: 0
+
+Memory Utilization:
+  Total memory: 8192 bytes
+  Used memory: 896 bytes
+  Free memory: 7296 bytes
+  Utilization: 10.94%
+
+Fragmentation:
+  Total internal fragmentation: 0 bytes
+  Internal fragmentation ratio: 0.00% of used memory
+  External fragmentation: 4 free block(s) smaller than max size
+
++--- VIRTUAL MEMORY -------------------------------+
+
+=== VIRTUAL MEMORY STATISTICS ===
+
+Configuration:
+  Virtual memory: 32768 bytes (128 pages)
+  Physical memory: 8192 bytes (32 frames)
+  Page size: 256 bytes
+  Replacement policy: LRU
+
+Memory Access Statistics:
+  Total accesses: 3
+  Page hits: 0
+  Page faults: 3
+  Hit rate: 0.00%
+  Fault rate: 100.00%
+
+Disk Operations (Simulated):
+  Disk reads: 3
+  Disk writes: 0
+  Total disk I/O: 3
+
+Frame Utilization:
+  Frames used: 3 / 32
+  Utilization: 9.38%
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 4, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 3
+  Total accesses: 3
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+L2 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 4-way set associative
+  Sets: 8, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 3
+  Total accesses: 3
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+
+========================================
+Overall Statistics:
+  Total accesses: 3
+  Total reads: 2
+  Total writes: 1
+  L1 hits: 0
+  L2 hits: 0
+  Memory accesses: 3
+  Memory writes: 1
+  Overall hit ratio: 0.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 333
+  Average cycles per access: 111.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> 
+=== ALLOCATED BLOCKS ===
+Format: block_id | address | requested -> actual | internal_frag
+
+Block 001 | 0x1f00 | 00256 -> 00256 | 0000 bytes
+Block 002 | 0x1c00 | 00512 -> 00512 | 0000 bytes
+Block 003 | 0x1e80 | 00128 -> 00128 | 0000 bytes
+
+=== FREE LISTS ===
+Format: Order (block_size): [address1] [address2] ...
+
+Order 00 (000016 bytes): empty
+Order 01 (000032 bytes): empty
+Order 02 (000064 bytes): empty
+Order 03 (000128 bytes): [0x1e00] (1 block)
+Order 04 (000256 bytes): empty
+Order 05 (000512 bytes): empty
+Order 06 (001024 bytes): [0x1800] (1 block)
+Order 07 (002048 bytes): [0x1000] (1 block)
+Order 08 (004096 bytes): [0x0000] (1 block)
+Order 09 (008192 bytes): empty
+> > 
+========================================
+Exiting Memory Management Simulator
+Thank you for using the simulator!
+========================================

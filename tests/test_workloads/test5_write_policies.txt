@@ -1,0 +1,80 @@
+# Test 5: Write Policies (Write-Through vs Write-Back)
+# Tests: Write-through, write-back, dirty bit tracking, write-backs
+# Expected: Different memory write behavior, dirty block evictions
+
+# Write-Through Policy
+init memory 8192
+init cache 8 64 4way lru wt 16 64 4way lru wt 0 64 4way lru wt
+
+write 100
+write 100
+write 100
+write 200
+write 200
+stats
+
+clear
+
+# Write-Back Policy
+init memory 8192
+init cache 8 64 4way lru wb 16 64 4way lru wb 0 64 4way lru wb
+
+write 100
+write 100
+write 100
+write 200
+write 200
+stats
+
+# Write miss with write-allocate
+clear
+init memory 4096
+init cache 4 64 fully fifo wb 0 64 fully fifo wb 0 64 fully fifo wb
+
+write 100
+stats
+cache_contents
+
+# Read after write (write-back)
+write 100
+read 100
+stats
+
+# Write after write (write-back)
+write 200
+write 200
+write 200
+stats
+cache_contents
+
+# Dirty block eviction
+write 0
+write 64
+write 128
+write 192
+write 256
+stats
+
+# Mixed clean and dirty eviction
+clear
+init memory 4096
+init cache 4 64 fully fifo wb 0 64 fully fifo wb 0 64 fully fifo wb
+
+read 0
+write 64
+read 128
+write 192
+write 256
+stats
+
+# Write-through immediate propagation
+clear
+init memory 4096
+init cache 4 64 fully fifo wt 0 64 fully fifo wt 0 64 fully fifo wt
+
+write 100
+write 100
+write 100
+stats
+
+exit

@@ -1,0 +1,2010 @@
+
++==========================================================+
+|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |
++==========================================================+
+
+  Automatic Integration Flow:
+  Virtual Address -> Page Table -> Physical Address -> Cache -> Memory
+
+  Components (Enable as needed):
+  • Memory Allocator: Classic OR Buddy (Required)
+  • Virtual Memory: Optional (enables address translation)
+  • Cache Hierarchy: Optional (enables L1/L2/L3 caching)
+
+  Type 'help' for commands
+==========================================================
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> Unknown command. Type 'help' for available commands.
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 8192 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 8192 bytes
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2 -> L3
+========================================
+> > 
++==========================================================+
+|                  SYSTEM CONFIGURATION                    |
++==========================================================+
+
+  Memory Allocator:
+    Type: CLASSIC ALLOCATOR
+    Size: 8192 bytes
+    Strategy: First/Best/Worst Fit (configurable)
+
+  Virtual Memory:
+    Status: DISABLED
+    Using direct physical addressing
+
+  Cache Hierarchy:
+    Status: ENABLED
+    Levels: L1, L2, L3
+
+  Integration Flow:
+    Physical Address -> Cache Hierarchy -> Memory
+
+  Settings:
+    Verbose Mode: OFF
+
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x64
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 2
+  Misses: 1
+  Total accesses: 3
+  Hit ratio: 66.67%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 3
+  Total reads: 3
+  Total writes: 0
+  L1 hits: 2
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 1
+  Memory writes: 0
+  Overall hit ratio: 66.67%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 163
+  Average cycles per access: 54.33
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x0 (0)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x20 (32)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x20 (32)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x3f (63)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x3f (63)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 4
+  Misses: 2
+  Total accesses: 6
+  Hit ratio: 66.67%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 2
+  Total accesses: 2
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 6
+  Total reads: 6
+  Total writes: 0
+  L1 hits: 4
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 2
+  Memory writes: 0
+  Overall hit ratio: 66.67%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 326
+  Average cycles per access: 54.33
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x0 (0)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x40 (64)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x40 (64)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x80 (128)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x80
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x80 (128)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xc0 (192)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xc0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xc0 (192)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x100 (256)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x100 (256)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x140 (320)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x140
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x140 (320)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x180 (384)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x180
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x180 (384)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1c0 (448)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1c0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1c0 (448)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x200 (512)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x200
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x200 (512)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 6
+  Misses: 9
+  Total accesses: 15
+  Hit ratio: 40.00%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 9
+  Total accesses: 9
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 9
+  Total accesses: 9
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 15
+  Total reads: 15
+  Total writes: 0
+  L1 hits: 6
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 9
+  Memory writes: 0
+  Overall hit ratio: 40.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 1455
+  Average cycles per access: 97.00
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> L1 Contents:
+  Set 0:
+    Way 0: Tag=2 [CLEAN] (order=8)
+    Way 1: Tag=1 [CLEAN] (order=4)
+  Set 1:
+    Way 0: Tag=0 [CLEAN] (order=0)
+    Way 1: Tag=1 [CLEAN] (order=5)
+  Set 2:
+    Way 0: Tag=0 [CLEAN] (order=2)
+    Way 1: Tag=1 [CLEAN] (order=6)
+  Set 3:
+    Way 0: Tag=0 [CLEAN] (order=3)
+    Way 1: Tag=1 [CLEAN] (order=7)
+
+L2 Contents:
+  Set 0:
+    Way 0: Tag=0 [CLEAN] (order=1)
+    Way 1: Tag=1 [CLEAN] (order=8)
+  Set 1:
+    Way 0: Tag=0 [CLEAN] (order=0)
+    Way 1: EMPTY
+  Set 2:
+    Way 0: Tag=0 [CLEAN] (order=2)
+    Way 1: EMPTY
+  Set 3:
+    Way 0: Tag=0 [CLEAN] (order=3)
+    Way 1: EMPTY
+  Set 4:
+    Way 0: Tag=0 [CLEAN] (order=4)
+    Way 1: EMPTY
+  Set 5:
+    Way 0: Tag=0 [CLEAN] (order=5)
+    Way 1: EMPTY
+  Set 6:
+    Way 0: Tag=0 [CLEAN] (order=6)
+    Way 1: EMPTY
+  Set 7:
+    Way 0: Tag=0 [CLEAN] (order=7)
+    Way 1: EMPTY
+
+L3 Contents:
+  Set 0:
+    Way 0: Tag=0 [CLEAN] (order=1)
+    Way 1: EMPTY
+  Set 1:
+    Way 0: Tag=0 [CLEAN] (order=0)
+    Way 1: EMPTY
+  Set 2:
+    Way 0: Tag=0 [CLEAN] (order=2)
+    Way 1: EMPTY
+  Set 3:
+    Way 0: Tag=0 [CLEAN] (order=3)
+    Way 1: EMPTY
+  Set 4:
+    Way 0: Tag=0 [CLEAN] (order=4)
+    Way 1: EMPTY
+  Set 5:
+    Way 0: Tag=0 [CLEAN] (order=5)
+    Way 1: EMPTY
+  Set 6:
+    Way 0: Tag=0 [CLEAN] (order=6)
+    Way 1: EMPTY
+  Set 7:
+    Way 0: Tag=0 [CLEAN] (order=7)
+    Way 1: EMPTY
+  Set 8:
+    Way 0: Tag=0 [CLEAN] (order=8)
+    Way 1: EMPTY
+  Set 9:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 10:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 11:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 12:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 13:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 14:
+    Way 0: EMPTY
+    Way 1: EMPTY
+  Set 15:
+    Way 0: EMPTY
+    Way 1: EMPTY
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x3e8 (1000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x3e8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x3e8 (1000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x7d0 (2000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x7d0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x7d0 (2000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xbb8 (3000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xbb8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xbb8 (3000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xfa0 (4000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xfa0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xfa0 (4000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1388 (5000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1388
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1388 (5000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1770 (6000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1770
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1770 (6000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1b58 (7000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1b58
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1b58 (7000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1f40 (8000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1f40
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1f40 (8000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x2328 (9000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2328
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x2328 (9000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x2710 (10000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x2710
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x2710 (10000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 6
+  Misses: 19
+  Total accesses: 25
+  Hit ratio: 24.00%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 19
+  Total accesses: 19
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 19
+  Total accesses: 19
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 25
+  Total reads: 25
+  Total writes: 0
+  L1 hits: 6
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 19
+  Memory writes: 0
+  Overall hit ratio: 24.00%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 3065
+  Average cycles per access: 122.60
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xc350 (50000)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> L2 -> L3 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xc350
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xc350 (50000)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 4, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 6
+  Misses: 20
+  Total accesses: 26
+  Hit ratio: 23.08%
+
+L2 Statistics:
+  Capacity: 16 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 8, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 20
+  Total accesses: 20
+  Hit ratio: 0.00%
+
+L3 Statistics:
+  Capacity: 32 lines
+  Block size: 64 bytes
+  Associativity: 2-way set associative
+  Sets: 16, Ways: 2
+  Replacement Policy: FIFO
+  Write Policy: Write-Through
+  Hits: 0
+  Misses: 20
+  Total accesses: 20
+  Hit ratio: 0.00%
+
+========================================
+Overall Statistics:
+  Total accesses: 26
+  Total reads: 26
+  Total writes: 0
+  L1 hits: 6
+  L2 hits: 0
+  L3 hits: 0
+  Memory accesses: 20
+  Memory writes: 0
+  Overall hit ratio: 23.08%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 3226
+  Average cycles per access: 124.08
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 4096 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 4096 bytes
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1 -> L2
+========================================
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x64
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 4096 bytes
+Used memory: 0 bytes
+Free memory: 4096 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 4 lines
+  Block size: 64 bytes
+  Associativity: Fully associative
+  Sets: 1, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 2
+  Misses: 1
+  Total accesses: 3
+  Hit ratio: 66.67%
+  Writes: 3 (Hits: 2, Misses: 1)
+  Write-backs to memory: 0
+
+L2 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: Fully associative
+  Sets: 1, Ways: 8
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 0
+  Misses: 1
+  Total accesses: 1
+  Hit ratio: 0.00%
+  Writes: 1 (Hits: 0, Misses: 1)
+  Write-backs to memory: 0
+
+========================================
+Overall Statistics:
+  Total accesses: 3
+  Total reads: 0
+  Total writes: 3
+  L1 hits: 2
+  L2 hits: 0
+  Memory accesses: 1
+  Memory writes: 0
+  Overall hit ratio: 66.67%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 113
+  Average cycles per access: 37.67
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > Unknown command. Type 'help' for available commands.
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x0 (0)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x0 (0)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x40 (64)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x40 (64)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x80 (128)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x80
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x80 (128)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xc0 (192)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0xc0
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xc0 (192)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x100 (256)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: WRITE
+  Checking L1 -> L2 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Writing to physical memory at 0x100
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x100 (256)
+  Operation: WRITE
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 4096 bytes
+Used memory: 0 bytes
+Free memory: 4096 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 4 lines
+  Block size: 64 bytes
+  Associativity: Fully associative
+  Sets: 1, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 3
+  Misses: 5
+  Total accesses: 8
+  Hit ratio: 37.50%
+  Writes: 8 (Hits: 3, Misses: 5)
+  Write-backs to memory: 1
+
+L2 Statistics:
+  Capacity: 8 lines
+  Block size: 64 bytes
+  Associativity: Fully associative
+  Sets: 1, Ways: 8
+  Replacement Policy: LRU
+  Write Policy: Write-Back
+  Hits: 0
+  Misses: 5
+  Total accesses: 5
+  Hit ratio: 0.00%
+  Writes: 5 (Hits: 0, Misses: 5)
+  Write-backs to memory: 0
+
+========================================
+Overall Statistics:
+  Total accesses: 8
+  Total reads: 0
+  Total writes: 8
+  L1 hits: 3
+  L2 hits: 0
+  Memory accesses: 5
+  Memory writes: 0
+  Overall hit ratio: 37.50%
+  Total write-backs: 1
+
+Miss Penalty Analysis:
+  Total penalty cycles: 558
+  Average cycles per access: 69.75
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> L1 Contents:
+  Set 0:
+    Way 0: Tag=1 [DIRTY] (order=0, lru=7)
+    Way 1: Tag=4 [DIRTY] (order=4, lru=13)
+    Way 2: Tag=2 [DIRTY] (order=2, lru=9)
+    Way 3: Tag=3 [DIRTY] (order=3, lru=11)
+
+L2 Contents:
+  Set 0:
+    Way 0: Tag=1 [DIRTY] (order=0, lru=2)
+    Way 1: Tag=0 [DIRTY] (order=1, lru=4)
+    Way 2: Tag=2 [DIRTY] (order=2, lru=6)
+    Way 3: Tag=3 [DIRTY] (order=3, lru=8)
+    Way 4: Tag=4 [DIRTY] (order=4, lru=10)
+    Way 5: EMPTY
+    Way 6: EMPTY
+    Way 7: EMPTY
+> > Unknown command. Type 'help' for available commands.
+> 
+========================================
+Clearing entire system...
+System cleared
+========================================
+> 
+========================================
+Initializing Memory Allocator
+========================================
+Memory initialized: 8192 bytes
+Memory Allocator: CLASSIC (First/Best/Worst Fit)
+Physical Memory: 8192 bytes
+========================================
+> 
+========================================
+Initializing Cache Hierarchy
+========================================
+
+========================================
+Cache hierarchy initialized
+========================================
+Cache Hierarchy: ENABLED
+Flow: Physical Address -> L1
+========================================
+> > 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x64
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0xc8 (200)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0xc8
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0xc8 (200)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x12c (300)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x12c
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x12c (300)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x190 (400)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x190
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x190 (400)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x1f4 (500)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [STEP 3] PHYSICAL MEMORY - Final Access
+  ---------------------------------------------------
+  Reading from physical memory at 0x1f4
+  Memory allocator: Classic
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x1f4 (500)
+  Operation: READ
+  Flow: Cache Hierarchy -> Physical Memory
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                  UNIFIED MEMORY ACCESS                   |
++==========================================================+
+
+  [STEP 1] VIRTUAL MEMORY: Disabled
+  Using direct physical addressing
+  Physical Address: 0x64 (100)
+
+  [STEP 2] CACHE HIERARCHY - Multi-level Cache Check
+  ---------------------------------------------------
+  Operation: READ
+  Checking L1 -> Memory...
+
+
+  [OK] Memory access complete
+
+  +====================================================+
+  |                      SUMMARY                       |
+  +====================================================+
+  Physical Address:  0x64 (100)
+  Operation: READ
+  Flow: Cache Hierarchy -> 
+  Status: SUCCESS
+
+> 
++==========================================================+
+|                COMPREHENSIVE STATISTICS                  |
++==========================================================+
+
++--- MEMORY ALLOCATOR -----------------------------+
+
+=== Memory Statistics ===
+Total memory: 8192 bytes
+Used memory: 0 bytes
+Free memory: 8192 bytes
+Free blocks: 1
+External fragmentation: 0.00%
+Internal fragmentation: 0 bytes (exact allocation)
+
+Allocation Statistics:
+Total attempts: 0
+Successful: 0
+Failed: 0
+Success rate: 0.00%
+
+
++--- CACHE HIERARCHY ------------------------------+
+
+========================================
+   CACHE HIERARCHY STATISTICS
+========================================
+
+L1 Statistics:
+  Capacity: 4 lines
+  Block size: 64 bytes
+  Associativity: Fully associative
+  Sets: 1, Ways: 4
+  Replacement Policy: LRU
+  Write Policy: Write-Through
+  Hits: 2
+  Misses: 5
+  Total accesses: 7
+  Hit ratio: 28.57%
+
+========================================
+Overall Statistics:
+  Total accesses: 7
+  Total reads: 7
+  Total writes: 0
+  L1 hits: 2
+  L2 hits: 0
+  Memory accesses: 5
+  Memory writes: 0
+  Overall hit ratio: 28.57%
+
+Miss Penalty Analysis:
+  Total penalty cycles: 507
+  Average cycles per access: 72.43
+  (L1 hit=1, L2 hit=10, L3 hit=50, Memory=100 cycles)
+========================================
+> > 
+========================================
+Exiting Memory Management Simulator
+Thank you for using the simulator!
+========================================

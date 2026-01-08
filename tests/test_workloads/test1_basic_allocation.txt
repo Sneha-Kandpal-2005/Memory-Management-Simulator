@@ -1,0 +1,38 @@
+# Test 1: Basic Memory Allocation and Deallocation
+# Tests: Classic allocator, First/Best/Worst Fit, Coalescing
+# Expected: Successful allocations, proper coalescing, strategy differences
+
+# Initialize 10KB memory with classic allocator
+init memory 10000
+status
+
+# Test First Fit Strategy
+set strategy first_fit
+malloc 100
+malloc 200
+malloc 150
+dump
+stats
+
+# Test Best Fit Strategy
+set strategy best_fit
+free 2
+malloc 180
+dump
+
+# Test Worst Fit Strategy
+set strategy worst_fit
+malloc 50
+dump
+
+# Test Memory Coalescing
+free 1
+free 3
+dump
+stats
+
+# Test Out of Memory
+malloc 15000
+stats
+
+exit
