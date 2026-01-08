@@ -496,7 +496,7 @@ private:
 void printWelcome() {
     cout << "\n";
     cout << "+==========================================================+\n";
-    cout << "|   UNIFIED MEMORY MANAGEMENT SIMULATOR                    |\n";
+    cout << "|           UNIFIED MEMORY MANAGEMENT SIMULATOR            |\n";
     cout << "+==========================================================+\n";
     cout << "\n";
     cout << "  Automatic Integration Flow:\n";
